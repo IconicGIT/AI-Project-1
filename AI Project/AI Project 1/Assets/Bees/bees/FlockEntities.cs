@@ -15,6 +15,7 @@ public class FlockEntities : MonoBehaviour
 
     
     public GameObject target;
+    Vector3 randomVector;
 
     //private bool turning;
 
@@ -58,7 +59,7 @@ public class FlockEntities : MonoBehaviour
         Vector3 align = Vector3.zero;
         Vector3 separation = Vector3.zero;
         Vector3 leader = Vector3.zero;
-        Vector3 randomVector = Vector3.zero;
+        
         randomVector.x = Random.Range(-0.15f, 0.15f);
         randomVector.y = Random.Range(-1.15f, 1.15f);
         randomVector.z = Random.Range(-0.15f, 0.15f);

@@ -98,5 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myManager: {fileID: 0}
   speed: 0
+  maxChasingTime: 10
+  currentChasingTime: 0
   target: {fileID: 0}
-  MinDangerDistance: 0
+  MinDangerDistance: 20

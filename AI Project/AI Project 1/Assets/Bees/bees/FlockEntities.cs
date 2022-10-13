@@ -13,7 +13,11 @@ public class FlockEntities : MonoBehaviour
     private float timePassed;
     private float seconds;
 
-    
+    [SerializeField]
+    private float maxChasingTime;
+    [SerializeField]
+    private float currentChasingTime;
+
     public GameObject target;
     Vector3 randomVector;
 
@@ -35,6 +39,7 @@ public class FlockEntities : MonoBehaviour
         randomVector.z = Random.Range(-0.15f, 0.15f);
 
         beesPosibleTargets = GameObject.FindGameObjectsWithTag("beeTarget");
+        target = Nest;
     }
 
     void Update()
@@ -58,6 +63,20 @@ public class FlockEntities : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), myManager.rotationSpeed * Time.deltaTime);
         transform.Translate(0.0f, 0.0f, Time.deltaTime * speed);
 
+        if (currentChasingTime > 0.0f)
+        {
+            currentChasingTime -= Time.deltaTime;
+        }
+        else
+        {
+            if (target.GetComponent<AgentBehavior>() != null)
+            {
+                target.GetComponent<AgentBehavior>().isBeingChased = false;
+                target.GetComponent<AgentBehavior>().target = null;
+            }
+            target = Nest;
+            
+        }
        
     }
 
@@ -68,32 +87,48 @@ public class FlockEntities : MonoBehaviour
         Vector3 align = Vector3.zero;
         Vector3 separation = Vector3.zero;
         Vector3 leader = Vector3.zero;
-        GameObject beeTarget = null;
-        
+        GameObject beeTarget = Nest;
+
+        if (target != Nest) beeTarget = target;
         
         int num = 0;
         float distanceToBeetarget = Mathf.Infinity;
 
-        foreach(GameObject agent in beesPosibleTargets)
+        if (target == Nest)
         {
-            float currentDistance = Vector3.Distance(agent.transform.position, Nest.transform.position);
-            if(currentDistance < distanceToBeetarget /*&& distanceToBeetarget < MinDangerDistance*/)
+            foreach (GameObject agent in beesPosibleTargets)
             {
-                distanceToBeetarget = currentDistance;
-                beeTarget = agent;   
+                float currentDistance = Vector3.Distance(agent.transform.position, Nest.transform.position);
+                //print("current distance: " + distanceToBeetarget);
+                if (currentDistance < distanceToBeetarget)
+                {
+
+                    distanceToBeetarget = currentDistance;
+
+                    if (distanceToBeetarget < MinDangerDistance)
+                    {
+                        beeTarget = agent;
+                        currentChasingTime = maxChasingTime;
+                        if (Vector3.Distance(beeTarget.transform.position, Nest.transform.position) < MinDangerDistance)
+                        {
+
+
+                            
+                        }
+                    }
+                }
             }
-            //else
-            //{
-            //    distanceToBeetarget = Mathf.Infinity;
-            //}
         }
-        
-        if(beeTarget == null)
+
+        if(beeTarget == Nest)
         {
+            print("target is Nest");
             WaitingMode();
         }
         else
         {
+            print("target is guy " + target.gameObject);
+
             ChasingMode(beeTarget);
         }
         
@@ -165,6 +200,16 @@ public class FlockEntities : MonoBehaviour
         target = guy;
         
         randomVector.y = Random.Range(-0.15f, 0.15f);
+
+        if (guy.GetComponent<AgentBehavior>() != null)
+        {
+            guy.GetComponent<AgentBehavior>().isBeingChased = true;
+            Debug.Log(guy.gameObject + " traget is: " + guy.GetComponent<AgentBehavior>().target);
+            guy.GetComponent<AgentBehavior>().target = gameObject;
+            Debug.Log(guy.gameObject + " traget is: " + guy.GetComponent<AgentBehavior>().target);
+
+        }
+
     }
 
     void WaitingMode() 

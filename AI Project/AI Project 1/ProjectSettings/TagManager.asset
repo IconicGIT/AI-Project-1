@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - beeTarget
+  - hide
   layers:
   - Default
   - TransparentFX

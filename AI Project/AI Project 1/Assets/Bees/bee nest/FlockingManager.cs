@@ -41,6 +41,7 @@ public class FlockingManager : MonoBehaviour
 
 			allFlockingEntities[i] = (GameObject)Instantiate(entityPrefab, pos, Quaternion.LookRotation(randomize));
 			allFlockingEntities[i].GetComponent<FlockEntities>().myManager = this;
+			allFlockingEntities[i].transform.parent = this.gameObject.transform;
 		}
 	}
 

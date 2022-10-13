@@ -99,3 +99,4 @@ MonoBehaviour:
   myManager: {fileID: 0}
   speed: 0
   target: {fileID: 0}
+  MinDangerDistance: 0

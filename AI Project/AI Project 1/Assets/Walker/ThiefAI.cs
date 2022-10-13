@@ -13,7 +13,8 @@ public class ThiefAI : MonoBehaviour
         Seek = 0,
         Flee = 1,
         Wander = 2,
-        Pursue = 3
+        Pursue = 3,
+        None = 4
     }
 
     [SerializeField]
@@ -149,6 +150,11 @@ public class ThiefAI : MonoBehaviour
             case States.Pursue:
                 {
                     Pursue();
+                }
+                break;
+            case States.None:
+                {
+                    
                 }
                 break;
         }

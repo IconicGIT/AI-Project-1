@@ -17,15 +17,24 @@ public class FlockEntities : MonoBehaviour
     public GameObject target;
     Vector3 randomVector;
 
+    
+    private GameObject[] beesPosibleTargets;
+    private GameObject Nest;
+    [SerializeField]
+    float MinDangerDistance;
     //private bool turning;
 
     void Start()
     {
-        seconds = 0.6f;
+        seconds = 0.25f;
         timePassed = seconds;
         speed = Random.Range(myManager.minSpeed, myManager.maxSpeed);
-        target = myManager.entitiesTarget;
-       // turning = false;
+        Nest = myManager.entitiesTarget;
+        randomVector.x = Random.Range(-0.15f, 0.15f);
+        randomVector.y = Random.Range(-0.15f, 0.15f);
+        randomVector.z = Random.Range(-0.15f, 0.15f);
+
+        beesPosibleTargets = GameObject.FindGameObjectsWithTag("beeTarget");
     }
 
     void Update()
@@ -59,13 +68,34 @@ public class FlockEntities : MonoBehaviour
         Vector3 align = Vector3.zero;
         Vector3 separation = Vector3.zero;
         Vector3 leader = Vector3.zero;
+        GameObject beeTarget = null;
         
-        randomVector.x = Random.Range(-0.15f, 0.15f);
-        randomVector.y = Random.Range(-1.15f, 1.15f);
-        randomVector.z = Random.Range(-0.15f, 0.15f);
+        
         int num = 0;
+        float distanceToBeetarget = Mathf.Infinity;
 
+        foreach(GameObject agent in beesPosibleTargets)
+        {
+            float currentDistance = Vector3.Distance(agent.transform.position, Nest.transform.position);
+            if(currentDistance < distanceToBeetarget /*&& distanceToBeetarget < MinDangerDistance*/)
+            {
+                distanceToBeetarget = currentDistance;
+                beeTarget = agent;   
+            }
+            //else
+            //{
+            //    distanceToBeetarget = Mathf.Infinity;
+            //}
+        }
         
+        if(beeTarget == null)
+        {
+            WaitingMode();
+        }
+        else
+        {
+            ChasingMode(beeTarget);
+        }
         
         foreach (GameObject go in myManager.allFlockingEntities)
         {
@@ -129,18 +159,18 @@ public class FlockEntities : MonoBehaviour
        //Debug.DrawRay(transform.position, separation, Color.blue);
     }
 
-    void ChasingMode()
+    void ChasingMode(GameObject guy)
     {
-        // seconds = 0.6f;
-        // target = beenest;
-        //randomVector.y = Random.Range(-0.15f, 0.15f);
-
+        seconds = 0.8f;
+        target = guy;
+        
+        randomVector.y = Random.Range(-0.15f, 0.15f);
     }
 
-    void WaintingMode() 
+    void WaitingMode() 
     {
-        // seconds = 1.5f;
-        // target = myManager.entitiesTarget;
-        //randomVector.y = Random.Range(-1.15f, 1.15f);
+        seconds = 0.25f;
+        target = Nest;
+        randomVector.y = Random.Range(-1.15f, 1.15f);
     }
 }

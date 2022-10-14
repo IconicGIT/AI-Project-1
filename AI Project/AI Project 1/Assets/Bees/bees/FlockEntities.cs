@@ -60,7 +60,10 @@ public class FlockEntities : MonoBehaviour
         }
         timePassed += Time.deltaTime;
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), myManager.rotationSpeed * Time.deltaTime);
+        if (direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), myManager.rotationSpeed * Time.deltaTime);
+        }
         transform.Translate(0.0f, 0.0f, Time.deltaTime * speed);
 
         if (currentChasingTime > 0.0f)
@@ -82,7 +85,7 @@ public class FlockEntities : MonoBehaviour
 
     void FlockingRules() // posicion del leader - posicion del flocking guy, que el lider se espere
     {
-        Debug.Log("Rules created");
+        //Debug.Log("Rules created");
         Vector3 cohesion = Vector3.zero;
         Vector3 align = Vector3.zero;
         Vector3 separation = Vector3.zero;
@@ -122,12 +125,12 @@ public class FlockEntities : MonoBehaviour
 
         if(beeTarget == Nest)
         {
-            print("target is Nest");
+            //print("target is Nest");
             WaitingMode();
         }
         else
         {
-            print("target is guy " + target.gameObject);
+            //print("target is guy " + target.gameObject);
 
             ChasingMode(beeTarget);
         }
@@ -204,9 +207,9 @@ public class FlockEntities : MonoBehaviour
         if (guy.GetComponent<AgentBehavior>() != null)
         {
             guy.GetComponent<AgentBehavior>().isBeingChased = true;
-            Debug.Log(guy.gameObject + " traget is: " + guy.GetComponent<AgentBehavior>().target);
+            //Debug.Log(guy.gameObject + " traget is: " + guy.GetComponent<AgentBehavior>().target);
             guy.GetComponent<AgentBehavior>().target = gameObject;
-            Debug.Log(guy.gameObject + " traget is: " + guy.GetComponent<AgentBehavior>().target);
+            //Debug.Log(guy.gameObject + " traget is: " + guy.GetComponent<AgentBehavior>().target);
 
         }
 

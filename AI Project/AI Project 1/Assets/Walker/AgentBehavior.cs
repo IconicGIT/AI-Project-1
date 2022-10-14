@@ -49,6 +49,9 @@ public class AgentBehavior : MonoBehaviour
     bool debugHide;
 
     [SerializeField]
+    bool DebugPatrol;
+
+    [SerializeField]
     bool fleeNearTarget;
 
     [SerializeField]
@@ -156,6 +159,11 @@ public class AgentBehavior : MonoBehaviour
 
         Vector3 destination = hidingSpot.transform.position + info.point + dir.normalized * 5;
         destination.y = 0;
+
+        print("hidingSpot: " + hidingSpot.transform.position);
+        print("info: " + info.point);
+        print("dir: " + dir.normalized * 5);
+        print("destination: " + destination);
         Seek(destination);
         //print("me.destination: " + me.destination);
         //print("destination: " + destination);
@@ -246,14 +254,20 @@ public class AgentBehavior : MonoBehaviour
                     walkDistance = (int)UnityEngine.Random.Range(maxWalkDistance - maxWalkDistance / 2, maxWalkDistance + maxWalkDistance / 2);
                 }
 
-               if (debugPointWander) Debug.DrawRay(st, end, Color.red);
+               if (debugPointWander) Debug.DrawRay(st, end, Color.green);
 
 
                 break;
 
             case MovementMode.HIDE:
 
-                Hide();
+
+                if (Timer())
+                {
+                    Hide();
+
+                }
+
                 if (debugHide)
                 {
                     Debug.DrawLine(st, end, Color.red);
@@ -263,8 +277,13 @@ public class AgentBehavior : MonoBehaviour
 
             case MovementMode.PATROL:
 
-                
-                if (Vector3.Distance(transform.position,pointToFollowInPath.transform.position) > 5)
+                float distanceToFollower = Vector3.Distance(transform.position, pointToFollowInPath.transform.position);
+
+                if (distanceToFollower > 15)
+                {
+                    me.speed = Mathf.Abs(pointToFollowInPath.GetComponent<PathPointController>().speed) * 2;
+                }
+                else if (distanceToFollower > 30)
                 {
                     me.speed = Mathf.Abs(pointToFollowInPath.GetComponent<PathPointController>().speed) * 3;
                 }
@@ -273,7 +292,18 @@ public class AgentBehavior : MonoBehaviour
                     me.speed = Mathf.Abs(pointToFollowInPath.GetComponent<PathPointController>().speed) - 0.1f;
                 }
 
+
                 Seek(pointToFollowInPath.transform.position);
+
+                if (DebugPatrol)
+                {
+                    Debug.DrawLine(transform.position, pointToFollowInPath.transform.position, Color.magenta);
+                    pointToFollowInPath.GetComponent<MeshRenderer>().enabled = true;
+                }
+                else
+                {
+                    pointToFollowInPath.GetComponent<MeshRenderer>().enabled = false;
+                }
 
                 break;
         }

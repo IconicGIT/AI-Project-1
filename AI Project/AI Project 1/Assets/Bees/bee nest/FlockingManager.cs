@@ -9,6 +9,9 @@ public class FlockingManager : MonoBehaviour
 
 	public GameObject spawn;
 
+	TextMesh infoText;
+	GameObject camObj;
+
 	[Range(0, 50)]
 	public int numFlockingEntities;
 
@@ -43,11 +46,15 @@ public class FlockingManager : MonoBehaviour
 			allFlockingEntities[i].GetComponent<FlockEntities>().myManager = this;
 			allFlockingEntities[i].transform.parent = this.gameObject.transform;
 		}
+
+		camObj = GameObject.FindGameObjectWithTag("MainCamera");
+		infoText = gameObject.GetComponentInChildren<TextMesh>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		infoText.transform.rotation = Quaternion.LookRotation(camObj.transform.position);
 	}
 
 	Vector3 RandomPosition()

@@ -8,6 +8,10 @@ using System;
 public class AgentBehavior : MonoBehaviour
 {
 
+    TextMesh infoText;
+
+    GameObject camObject;
+
     [SerializeField]
     NavMeshAgent me;
 
@@ -52,10 +56,18 @@ public class AgentBehavior : MonoBehaviour
     bool DebugPatrol;
 
     [SerializeField]
-    bool fleeNearTarget;
+    bool DebugFlee;
 
     [SerializeField]
+    bool DebugPursue;
+
+    [SerializeField]
+    bool fleeNearTarget;
+
+
+
     Vector3 st, end;
+    Vector3 st1, end1;
 
     enum MovementMode
     {
@@ -180,11 +192,18 @@ public class AgentBehavior : MonoBehaviour
         speed_ref = me.speed;
         target_ref = target;
         prev_movMode = movMode;
+
+        camObject = GameObject.FindGameObjectWithTag("MainCamera");
+        infoText = gameObject.GetComponentInChildren<TextMesh>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        infoText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
+
+
         Vector3 targetDir;
 
         float lookAhead;
@@ -230,36 +249,53 @@ public class AgentBehavior : MonoBehaviour
         switch (movMode)
         {
             case MovementMode.NONE:
+                infoText.text = "None";
+                infoText.color = Color.gray;
                 break;
 
             case MovementMode.PURSUE:
+                infoText.text = "PURSUING";
+                infoText.color = Color.red;
 
                 targetDir = target.transform.position - transform.position;
                 lookAhead = targetDir.magnitude / me.speed;
+                if (DebugPursue)
+                    Debug.DrawLine(transform.position, target.transform.position, Color.red);
 
                 Seek(target.transform.position + target.transform.forward * lookAhead);
                 break;
 
             case MovementMode.FLEE:
+                infoText.text = "FLEEING";
+                infoText.color = Color.blue;
+
+
+                if (DebugFlee)
+                    Debug.DrawLine(transform.position, target.transform.position, Color.blue);
 
                 FleeFrom(target.transform.position);
                 break;
 
             case MovementMode.WANDER:
+                infoText.text = "WANDERING";
+                infoText.color = Color.green;
 
-               
+
                 if (Timer())
                 {
                     Wander();
                     walkDistance = (int)UnityEngine.Random.Range(maxWalkDistance - maxWalkDistance / 2, maxWalkDistance + maxWalkDistance / 2);
                 }
 
-               if (debugPointWander) Debug.DrawRay(st, end, Color.green);
+               if (debugPointWander) 
+                    Debug.DrawLine(transform.position, me.destination, Color.green);
 
 
                 break;
 
             case MovementMode.HIDE:
+                infoText.text = "HIDING";
+                infoText.color = Color.magenta;
 
 
                 if (Timer())
@@ -270,12 +306,16 @@ public class AgentBehavior : MonoBehaviour
 
                 if (debugHide)
                 {
-                    Debug.DrawLine(st, end, Color.red);
+                    Debug.DrawLine(st, end, Color.magenta);
+                    Debug.DrawLine(transform.position, target.transform.position, Color.red);
                 }
 
                 break;
 
             case MovementMode.PATROL:
+
+                infoText.text = "PATROLING";
+                infoText.color = Color.cyan;
 
                 float distanceToFollower = Vector3.Distance(transform.position, pointToFollowInPath.transform.position);
 

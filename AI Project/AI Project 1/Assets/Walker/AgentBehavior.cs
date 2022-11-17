@@ -101,12 +101,12 @@ public class AgentBehavior : MonoBehaviour
 
     }
 
-    void Seek(Vector3 destination)
+    public void Seek(Vector3 destination)
     {
         me.destination = destination;
     }
 
-    void Wander()
+    public  void Wander()
     {
         float radius = walkRadius;
 
@@ -143,13 +143,13 @@ public class AgentBehavior : MonoBehaviour
 
     }
 
-    void FleeFrom(Vector3 position)
+    public void FleeFrom(Vector3 position)
     {
         Vector3 fleeVector = position - transform.position;
         Seek(transform.position - fleeVector);
     }
 
-    void Hide()
+    public void Hide()
     {
         Func<GameObject, float> distance = (hs) => Vector3.Distance(target.transform.position, hs.transform.position);
         //Func<GameObject, bool> avaiableSpot = (s) => Vector3.Distance(target.transform.position, s.transform.position) < fleeDistance;

@@ -7,7 +7,6 @@ using System;
 
 public class AgentBehavior : MonoBehaviour
 {
-
     TextMesh infoText;
 
     GameObject camObject;
@@ -69,7 +68,17 @@ public class AgentBehavior : MonoBehaviour
     Vector3 st, end;
     Vector3 st1, end1;
 
-    enum MovementMode
+    public enum AgentType
+    {
+        NONE,
+        ROBBER,
+        WALKER,
+        COP
+    }
+
+    public AgentType agentType;
+
+    public enum MovementMode
     {
         NONE,
         PURSUE,
@@ -80,8 +89,14 @@ public class AgentBehavior : MonoBehaviour
     }
 
     [SerializeField]
-    MovementMode movMode;
+    public MovementMode movMode;
     MovementMode prev_movMode;
+
+    public void SetState(MovementMode movementMode)
+    {
+        movMode = movementMode;
+    }
+
 
     bool Timer()
     {

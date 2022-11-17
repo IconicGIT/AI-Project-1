@@ -11,13 +11,14 @@ public class Wandering : StateMachineBehaviour
     {
         moves = animator.GetComponent<AgentBehavior>();
         blackboard = animator.GetComponent<BlackBoard>();
+        moves.SetState(AgentBehavior.MovementMode.WANDER);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Vector3.Distance(blackboard.cop.position, blackboard.treasure.transform.position) > blackboard.dist2Steal)
-            animator.SetTrigger("away");
-        else
-            moves.Wander();
+        //if (Vector3.Distance(blackboard.cop.position, blackboard.treasure.transform.position) > blackboard.dist2Steal)
+        //    animator.SetTrigger("away");
+        //else
+        moves.SetState(AgentBehavior.MovementMode.WANDER);
     }
 }

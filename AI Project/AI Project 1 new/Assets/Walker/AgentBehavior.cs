@@ -86,6 +86,16 @@ public class AgentBehavior : MonoBehaviour
     Vector3 st, end;
     Vector3 st1, end1;
 
+    public enum SeatMode
+    {
+        NONE,
+        SITTING,
+        STANDING
+    }
+
+    [SerializeField]
+    SeatMode seatMode = SeatMode.NONE;
+
     public enum AgentType
     {
         NONE,
@@ -134,41 +144,7 @@ public class AgentBehavior : MonoBehaviour
 
     }
 
-    bool ChairTimer()
-    {
-        if (chairTimer > 0)
-        {
-
-            chairTimer -= timerDecrease;
-            return false;
-        }
-        else
-        {
-            chairTimer = chairTimerRef;
-
-            return true;
-        }
-
-
-    }
-
-    bool ChairTimerCooldown()
-    {
-        if (chairTimerCooldown > 0)
-        {
-
-            chairTimerCooldown -= timerDecrease;
-            return false;
-        }
-        else
-        {
-            chairTimerCooldown = chairTimerCooldownRef;
-
-            return true;
-        }
-
-
-    }
+   
 
     public void Seek(Vector3 destination)
     {
@@ -287,7 +263,8 @@ public class AgentBehavior : MonoBehaviour
         {
             case AgentType.WALKER:
                 {
-
+                    seatMode = SeatMode.STANDING;
+                    seatMode = SeatMode.STANDING;
                 }
                 break;
 
@@ -336,10 +313,10 @@ public class AgentBehavior : MonoBehaviour
         {
             case AgentType.WALKER:
                 {
-                    if (other.gameObject.CompareTag("chair") && chairTimerCooldown <= 0)
+                    if (other.gameObject.CompareTag("chair") && chairTimerCooldown <= 0 && seatMode == SeatMode.STANDING)
                     {
                         print("collision with chair");
-                       
+                        seatMode = SeatMode.SITTING;
                         target_ref = other.transform.parent.gameObject;
                         target = target_ref;
                         chairTimer = chairTimerRef;
@@ -475,6 +452,7 @@ public class AgentBehavior : MonoBehaviour
                     }
                     else
                     {
+                        seatMode = SeatMode.STANDING;
                         chairTimerCooldown = chairTimerCooldownRef;
                         timer = 0;
                         target = null;

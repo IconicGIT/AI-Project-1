@@ -870,43 +870,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4586982289727920216, guid: b529943e159a62442837ee100194ec79, type: 3}
   m_PrefabInstance: {fileID: 780105056}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &331254027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331254025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54067324727caa44aabc3cb9dc5e99b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  me: {fileID: 331254031}
-  target: {fileID: 0}
-  chairTimerRef: 1000
-  chairTimer: 0
-  chairTimerCooldownRef: 700
-  chairTimerCooldown: 0
-  isBeingChased: 0
-  pointToFollowInPath: {fileID: 0}
-  timerRef: 500
-  timer: 0
-  fleeDistance: 0
-  walkDistance: 0
-  maxWalkDistance: 24.5
-  walkRadius: 20
-  hidingSpots: []
-  targets: []
-  debugTarget: 0
-  debugPointWander: 1
-  debugHide: 0
-  DebugPatrol: 0
-  DebugFlee: 0
-  DebugPursue: 0
-  fleeNearTarget: 0
-  agentType: 2
-  movMode: 3
 --- !u!95 &331254028
 Animator:
   serializedVersion: 4
@@ -1569,43 +1532,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4586982289727920216, guid: b529943e159a62442837ee100194ec79, type: 3}
   m_PrefabInstance: {fileID: 1734347004}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &641005627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641005625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54067324727caa44aabc3cb9dc5e99b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  me: {fileID: 641005631}
-  target: {fileID: 0}
-  chairTimerRef: 1000
-  chairTimer: 0
-  chairTimerCooldownRef: 700
-  chairTimerCooldown: 0
-  isBeingChased: 0
-  pointToFollowInPath: {fileID: 0}
-  timerRef: 500
-  timer: 0
-  fleeDistance: 0
-  walkDistance: 0
-  maxWalkDistance: 24.5
-  walkRadius: 20
-  hidingSpots: []
-  targets: []
-  debugTarget: 0
-  debugPointWander: 1
-  debugHide: 0
-  DebugPatrol: 0
-  DebugFlee: 0
-  DebugPursue: 0
-  fleeNearTarget: 0
-  agentType: 2
-  movMode: 3
 --- !u!95 &641005628
 Animator:
   serializedVersion: 4
@@ -1626,11 +1552,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!195 &641005631 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 4586982289727920219, guid: b529943e159a62442837ee100194ec79, type: 3}
-  m_PrefabInstance: {fileID: 1734347004}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &676113154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1897,6 +1818,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1674595153}
     m_Modifications:
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: me
+      value: 
+      objectReference: {fileID: 331254031}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: movMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: timerRef
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: agentType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: walkRadius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: chairTimerRef
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: maxWalkDistance
+      value: 24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: debugPointWander
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: chairTimerCooldownRef
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 4586982289727920213, guid: b529943e159a62442837ee100194ec79, type: 3}
       propertyPath: m_Name
       value: WalkerGuy Base (2)
@@ -2714,6 +2671,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1674595153}
     m_Modifications:
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: me
+      value: 
+      objectReference: {fileID: 1281070058}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: movMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: timerRef
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: agentType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: walkRadius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: chairTimerRef
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: maxWalkDistance
+      value: 24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: debugPointWander
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: chairTimerCooldownRef
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 4586982289727920213, guid: b529943e159a62442837ee100194ec79, type: 3}
       propertyPath: m_Name
       value: WalkerGuy Base
@@ -3123,43 +3116,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4586982289727920213, guid: b529943e159a62442837ee100194ec79, type: 3}
   m_PrefabInstance: {fileID: 1160706637}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1281070055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281070053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54067324727caa44aabc3cb9dc5e99b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  me: {fileID: 1281070058}
-  target: {fileID: 0}
-  chairTimerRef: 1000
-  chairTimer: 0
-  chairTimerCooldownRef: 700
-  chairTimerCooldown: 0
-  isBeingChased: 0
-  pointToFollowInPath: {fileID: 0}
-  timerRef: 500
-  timer: 0
-  fleeDistance: 0
-  walkDistance: 0
-  maxWalkDistance: 24.5
-  walkRadius: 20
-  hidingSpots: []
-  targets: []
-  debugTarget: 0
-  debugPointWander: 1
-  debugHide: 0
-  DebugPatrol: 0
-  DebugFlee: 0
-  DebugPursue: 0
-  fleeNearTarget: 0
-  agentType: 2
-  movMode: 3
 --- !u!4 &1281070056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4586982289727920216, guid: b529943e159a62442837ee100194ec79, type: 3}
@@ -3711,43 +3667,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4586982289727920216, guid: b529943e159a62442837ee100194ec79, type: 3}
   m_PrefabInstance: {fileID: 1434338554}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1426365125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426365123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54067324727caa44aabc3cb9dc5e99b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  me: {fileID: 1426365129}
-  target: {fileID: 0}
-  chairTimerRef: 1000
-  chairTimer: 0
-  chairTimerCooldownRef: 700
-  chairTimerCooldown: 0
-  isBeingChased: 0
-  pointToFollowInPath: {fileID: 0}
-  timerRef: 100
-  timer: 0
-  fleeDistance: 0
-  walkDistance: 0
-  maxWalkDistance: 24.5
-  walkRadius: 20
-  hidingSpots: []
-  targets: []
-  debugTarget: 1
-  debugPointWander: 1
-  debugHide: 0
-  DebugPatrol: 0
-  DebugFlee: 0
-  DebugPursue: 0
-  fleeNearTarget: 0
-  agentType: 1
-  movMode: 3
 --- !u!95 &1426365126
 Animator:
   serializedVersion: 4
@@ -3845,6 +3764,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1674595153}
     m_Modifications:
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: me
+      value: 
+      objectReference: {fileID: 1426365129}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: movMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: timerRef
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: agentType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: walkRadius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: debugTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: chairTimerRef
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: maxWalkDistance
+      value: 24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: debugPointWander
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: chairTimerCooldownRef
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 4586982289727920213, guid: b529943e159a62442837ee100194ec79, type: 3}
       propertyPath: m_Name
       value: Robber_base
@@ -4109,6 +4068,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1674595153}
     m_Modifications:
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: me
+      value: 
+      objectReference: {fileID: 331254031}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: movMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: timerRef
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: agentType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: walkRadius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: debugTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: chairTimerRef
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: maxWalkDistance
+      value: 24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: debugPointWander
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830709487286488618, guid: b529943e159a62442837ee100194ec79, type: 3}
+      propertyPath: chairTimerCooldownRef
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 4586982289727920213, guid: b529943e159a62442837ee100194ec79, type: 3}
       propertyPath: m_Name
       value: WalkerGuy Base (1)

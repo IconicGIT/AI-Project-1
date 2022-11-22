@@ -7,7 +7,11 @@ using System;
 
 public class AgentBehavior : MonoBehaviour
 {
+    [SerializeField]
     TextMesh infoText;
+
+    [SerializeField]
+    TextMesh agentTypeText;
 
     GameObject camObject;
 
@@ -257,12 +261,14 @@ public class AgentBehavior : MonoBehaviour
         prev_movMode = movMode;
 
         camObject = GameObject.FindGameObjectWithTag("MainCamera");
-        infoText = gameObject.GetComponentInChildren<TextMesh>();
+        
 
         switch(agentType)
         {
             case AgentType.WALKER:
                 {
+                    agentTypeText.text = "WALKER";
+                    agentTypeText.color = Color.green;
                     seatMode = SeatMode.STANDING;
                     seatMode = SeatMode.STANDING;
                 }
@@ -271,6 +277,8 @@ public class AgentBehavior : MonoBehaviour
             case AgentType.ROBBER:
 
                 {
+                    agentTypeText.text = "ROBBER";
+                    agentTypeText.color = Color.red;
                     GameObject[] allAgents = GameObject.FindGameObjectsWithTag("beeTarget");
 
                     foreach (GameObject agent in allAgents)
@@ -287,13 +295,15 @@ public class AgentBehavior : MonoBehaviour
 
             case AgentType.COP:
                 {
+                    agentTypeText.text = "COP";
+                    agentTypeText.color = Color.blue;
 
                 }
                 break;
 
             case AgentType.NONE:
                 {
-
+                    agentTypeText.text = "NONE";
                 }
                 break;
 
@@ -358,9 +368,10 @@ public class AgentBehavior : MonoBehaviour
     {
 
         infoText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
+        agentTypeText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
 
 
-        
+
 
         Vector3 targetDir;
 
@@ -443,8 +454,9 @@ public class AgentBehavior : MonoBehaviour
                     chairTimerCooldown -= timerDecrease;
                 }
 
-                if (target != null)
+                if (target != null && agentType == AgentType.WALKER)
                 {
+                   
                     if (chairTimer > 0)
                     {
 
@@ -452,28 +464,33 @@ public class AgentBehavior : MonoBehaviour
                     }
                     else
                     {
+
                         seatMode = SeatMode.STANDING;
                         chairTimerCooldown = chairTimerCooldownRef;
                         timer = 0;
                         target = null;
                         target_ref = null;
                     }
-                }
-                else if(Timer())
-                {
                     
-
-                    Wander();
-                    walkDistance = (int)UnityEngine.Random.Range(maxWalkDistance - maxWalkDistance / 2, maxWalkDistance + maxWalkDistance / 2);
-
-
-                    if (agentType == AgentType.ROBBER)
+                       
+                }
+                else
+                {
+                    if (Timer())
                     {
 
+                        Wander();
+                        walkDistance = (int)UnityEngine.Random.Range(maxWalkDistance - maxWalkDistance / 2, maxWalkDistance + maxWalkDistance / 2);
 
-                        if (targets.Count > 0)
+
+                        if (agentType == AgentType.ROBBER)
                         {
-                            target_ref = FindNearestObject(targets);
+
+
+                            if (targets.Count > 0)
+                            {
+                                target_ref = FindNearestObject(targets);
+                            }
                         }
                     }
                 }

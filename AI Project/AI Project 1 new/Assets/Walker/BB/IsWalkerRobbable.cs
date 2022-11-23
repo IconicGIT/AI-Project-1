@@ -1,16 +1,24 @@
 using UnityEngine;
+using Pada1.BBCore;           // Code attributes
+using Pada1.BBCore.Tasks;     // TaskStatus
+using Pada1.BBCore.Framework; // BasePrimitiveAction
 
-using Pada1.BBCore;
-using Pada1.BBCore.Framework;
-
-[Condition("MyConditions/Can Walker be Robbed?")]
-[Help("Checks whether Cop is near the Treasure.")]
-public class IsWalkerRobbable : ConditionBase
+[Action("MyActions/RobTarget")]
+[Help("Call for GetRobbed() in Target.")]
+public class RobTarget : BasePrimitiveAction
 {
-    public override bool Check()
+    [InParam("game object")]
+    [Help("Game object to add the component, if no assigned the component is added to the game object of this behavior")]
+    public GameObject targetGameobject;
+
+    //[OutParam("target position")]
+    //[Help("Vector3 for target's position.")]
+    //public Vector3 targetPos;
+
+    public override TaskStatus OnUpdate()
     {
-        GameObject cop = GameObject.Find("Cop");
-        GameObject treasure = GameObject.Find("Treasure");
-        return Vector3.Distance(cop.transform.position, treasure.transform.position) < 10f;
+        targetGameobject.GetComponent<AgentBehavior>().GetRobbed();
+        return TaskStatus.COMPLETED;
     }
 }
+

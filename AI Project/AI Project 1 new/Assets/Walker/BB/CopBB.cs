@@ -9,9 +9,11 @@ public class CopBB : MonoBehaviour
 
     public void NotifyRobber(GameObject robber)
     {
-        print("Cop robber: " + robber.name);
+        //print("Cop robber: " + robber.name);
         nextRobber = robber;
-        robbersToApproach.Add(robber);
+        
+        if (!robbersToApproach.Contains(robber))
+            robbersToApproach.Add(robber);
     }
 
     public void ApproachNextRobber()
@@ -19,10 +21,11 @@ public class CopBB : MonoBehaviour
 
     }
 
-    public void ErradicateRobber()
+    public void ErradicateEntity(GameObject entity)
     {
 
-        robbersToApproach.Remove(nextRobber);
+        robbersToApproach.Remove(entity);
+        entity.GetComponent<RobberBB>().Fly();
     }
 
 }

@@ -13,8 +13,6 @@ public class SetRobber : BasePrimitiveAction
     [InParam("self ")]
     public GameObject self;
 
-    [InParam("target pos ")]
-    public Vector3 targetPos;
 
 
     //[OutParam("target position")]
@@ -23,10 +21,13 @@ public class SetRobber : BasePrimitiveAction
 
     public override TaskStatus OnUpdate()
     {
-        self.GetComponent<CopBB>().nextRobber = self.GetComponent<CopBB>().robbersToApproach[0];
-        targetGameobject = self.GetComponent<CopBB>().nextRobber;
-        targetPos = targetGameobject.transform.position;
-        Debug.Log("next robber :" + self.GetComponent<CopBB>().nextRobber);
+
+        if (self.GetComponent<CopBB>().robbersToApproach.Count > 0)
+        {
+            self.GetComponent<CopBB>().nextRobber = self.GetComponent<CopBB>().robbersToApproach[0];
+            targetGameobject = self.GetComponent<CopBB>().nextRobber;
+        }
+        
 
         return TaskStatus.COMPLETED;
     }

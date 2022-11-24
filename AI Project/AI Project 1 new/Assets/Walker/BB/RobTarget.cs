@@ -19,7 +19,6 @@ public class RobTarget : BasePrimitiveAction
 
     public override TaskStatus OnUpdate()
     {
-        Debug.Log("Robber self: " + self.name);
         targetGameobject.GetComponent<WalkerBB>().GetRobbed(self);
         return TaskStatus.COMPLETED;
     }

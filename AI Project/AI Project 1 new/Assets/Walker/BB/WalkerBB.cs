@@ -10,7 +10,7 @@ public class WalkerBB : MonoBehaviour
         print("Robber: " + robber.name);
         int rnd = UnityEngine.Random.Range(0, 100);
 
-        if (rnd < 50)
+        if (rnd < 100)
         {
             print(gameObject.name + " noticied a robbery! Call the Cop!");
 

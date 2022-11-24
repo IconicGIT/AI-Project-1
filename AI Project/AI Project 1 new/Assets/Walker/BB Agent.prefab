@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 5353692728237067090}
   - component: {fileID: 8578797754670651771}
   m_Layer: 0
-  m_Name: Robber
+  m_Name: BB Agent
   m_TagString: beeTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

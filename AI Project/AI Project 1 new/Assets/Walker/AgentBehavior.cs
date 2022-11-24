@@ -250,21 +250,7 @@ public class AgentBehavior : MonoBehaviour
         return ret;
     }
 
-    public void GetRobbed()
-    {
-        int rnd = UnityEngine.Random.Range(0, 100);
-
-        if (rnd < 50)
-        {
-            print(gameObject.name + " noticied a robbery! Call the Cop!");
-        }
-        else
-        {
-            print(gameObject.name + " was robbed without noticing.");
-
-        }
-
-    }
+    
 
 
     // Start is called before the first frame update

@@ -7,7 +7,7 @@ public class RobberBB : MonoBehaviour
     public GameObject self;
     bool fly;
 
-    float spd = 0;
+    float pos = 0;
 
     public void Fly()
     {
@@ -19,8 +19,8 @@ public class RobberBB : MonoBehaviour
         
         if (fly)
         {
-            self.transform.position = self.transform.position + new Vector3(0,spd,0);
-            spd += .1f;
+            self.transform.position = self.transform.position + new Vector3(0, pos, 0);
+            pos += .1f;
         }
     }
 }

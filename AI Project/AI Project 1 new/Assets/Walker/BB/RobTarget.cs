@@ -10,7 +10,8 @@ public class RobTarget : BasePrimitiveAction
     [InParam("game object")]
     [Help("Game object to add the component, if no assigned the component is added to the game object of this behavior")]
     public GameObject targetGameobject;
-    public GameObject me;
+    [InParam("self")]
+    public GameObject self;
 
     //[OutParam("target position")]
     //[Help("Vector3 for target's position.")]
@@ -18,7 +19,8 @@ public class RobTarget : BasePrimitiveAction
 
     public override TaskStatus OnUpdate()
     {
-        targetGameobject.GetComponent<WalkerBB>().GetRobbed(me);
+        Debug.Log("Robber self: " + self.name);
+        targetGameobject.GetComponent<WalkerBB>().GetRobbed(self);
         return TaskStatus.COMPLETED;
     }
 }

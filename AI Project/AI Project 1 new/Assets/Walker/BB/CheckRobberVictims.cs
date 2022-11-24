@@ -10,9 +10,21 @@ public class CheckRobberVictims : ConditionBase
     [InParam("self")]
     [Help("Self")]
     public GameObject self;
+    [InParam("NextRobber")]
+    [Help("Self")]
+    public GameObject nextRobber;
 
     public override bool Check()
     {
-        return self.GetComponent<CopBB>().robbersToApproach.Count > 1;
+        Debug.Log("copBB robber count: " + self.GetComponent<CopBB>().robbersToApproach.Count);
+
+        bool ret = false;
+        if (self.GetComponent<CopBB>().robbersToApproach.Count > 0)
+        {
+            ret = true;
+            nextRobber = self.GetComponent<CopBB>().robbersToApproach[0];
+            Debug.Log("copBB next robber: " + nextRobber.name);
+        }
+        return ret;
     }
 } 

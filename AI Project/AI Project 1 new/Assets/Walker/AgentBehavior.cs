@@ -327,7 +327,7 @@ public class AgentBehavior : MonoBehaviour
                 {
                     if (other.gameObject.CompareTag("chair") && chairTimerCooldown <= 0 && seatMode == SeatMode.STANDING)
                     {
-                        print("collision with chair");
+                        //print("collision with chair");
                         seatMode = SeatMode.SITTING;
                         target_ref = other.transform.parent.gameObject;
                         target = target_ref;

@@ -1015,9 +1015,11 @@ MonoBehaviour:
     objectParams:
     - {fileID: 331254025}
     - {fileID: 1798593205}
+    - {fileID: 349922179}
     objectParamsNames:
     - target
     - floor
+    - self
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []

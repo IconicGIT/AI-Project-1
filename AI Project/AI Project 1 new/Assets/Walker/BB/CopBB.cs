@@ -9,6 +9,8 @@ public class CopBB : MonoBehaviour
 
     public void NotifyRobber(GameObject robber)
     {
+        print("Cop robber: " + robber.name);
+        nextRobber = robber;
         robbersToApproach.Add(robber);
     }
 

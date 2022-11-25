@@ -5,7 +5,7 @@ using UnityEngine;
 public class RobberBB : MonoBehaviour
 {
     public GameObject self;
-    bool fly;
+    public bool fly;
 
     float pos = 0;
 

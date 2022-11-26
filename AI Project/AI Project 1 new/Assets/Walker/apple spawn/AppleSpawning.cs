@@ -15,6 +15,10 @@ public class AppleSpawning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject newApple = GameObject.Instantiate(apple, transform.position + new Vector3(Random.Range(-appleSpawnRadius, appleSpawnRadius), 10, Random.Range(-appleSpawnRadius, appleSpawnRadius)), Quaternion.identity);
+        newApple.name = ("Apple " + applesSpawned);
+        applesSpawned++;
+        applesController.UpdateApples();
         var part = timer_ref / 4;
         timer = timer_ref/2 + (int)Random.Range(-part, part);
     }
@@ -29,11 +33,12 @@ public class AppleSpawning : MonoBehaviour
         }
         else
         {
+            appleSpawnRadius += 1;
             GameObject newApple = GameObject.Instantiate(apple, transform.position + new Vector3(Random.Range(-appleSpawnRadius, appleSpawnRadius), 10, Random.Range(-appleSpawnRadius, appleSpawnRadius)), Quaternion.identity);
             newApple.name = ("Apple " + applesSpawned);
             applesSpawned++;
             applesController.UpdateApples();
-            var part = timer_ref / 3;
+            var part = timer_ref;
             timer = timer_ref + (int)Random.Range(-part, part);
         }
     }

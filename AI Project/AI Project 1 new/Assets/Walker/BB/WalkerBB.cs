@@ -7,10 +7,10 @@ public class WalkerBB : MonoBehaviour
     public GameObject cop;
     public void GetRobbed(GameObject robber)
     {
-        print("Robber: " + robber.name);
+        //print("Robber: " + robber.name);
         int rnd = UnityEngine.Random.Range(0, 100);
 
-        if (rnd < 100)
+        if (rnd < 50)
         {
             print(gameObject.name + " noticied a robbery! Call the Cop!");
 
@@ -18,7 +18,7 @@ public class WalkerBB : MonoBehaviour
         }
         else
         {
-            //print(gameObject.name + " was robbed without noticing.");
+            print(gameObject.name + " was robbed without noticing.");
             
 
         }

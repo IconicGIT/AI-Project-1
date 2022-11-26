@@ -6,13 +6,15 @@ namespace BBUnity.Conditions
     /// <summary>
     /// It is a perception condition to check if the objective is close depending on a given distance.
     /// </summary>
-    [Condition("Perception/Is Target Active")]
+    [Condition("Perception/CompareActive")]
     [Help("Check if robber is flying")]
     public class IsTargetActive : GOCondition
     {
         ///<value>Input Target Parameter to to check the distance.</value>
         [InParam("target")]
         public GameObject target;
+        [InParam("activeness")]
+        public bool activeness;
 
         /// <summary>
         /// Checks whether a target is close depending on a given distance,
@@ -21,7 +23,7 @@ namespace BBUnity.Conditions
         /// <returns>True if the magnitude between the gameobject and de target is lower that the given distance.</returns>
         public override bool Check()
         {
-            return target && target.activeSelf;
+            return target && (target.activeSelf == activeness);
         }
     }
 }

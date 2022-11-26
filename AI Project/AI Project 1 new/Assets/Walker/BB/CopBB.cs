@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CopBB : MonoBehaviour
 {
+    public TextMesh infoText;
+    public TextMesh agentTypeText;
+    public GameObject camObject;
+
     public List<GameObject> robbersToApproach;
     public GameObject nextRobber;
+    
 
     public void NotifyRobber(GameObject robber)
     {
@@ -15,17 +20,32 @@ public class CopBB : MonoBehaviour
         if (!robbersToApproach.Contains(robber))
             robbersToApproach.Add(robber);
     }
-
-    public void ApproachNextRobber()
-    {
-
-    }
-
     public void ErradicateEntity(GameObject entity)
     {
-
+        nextRobber = null;
         robbersToApproach.Remove(entity);
         entity.GetComponent<RobberBB>().Fly();
     }
 
+    void Start()
+    {
+        agentTypeText.text = "Cop";
+        agentTypeText.color = Color.blue;
+    }
+    void Update()
+    {
+        infoText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
+        agentTypeText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
+
+        infoText.text = "Wandering";
+        infoText.color = Color.green;
+
+        if (nextRobber)
+        {
+            infoText.text = "Approaching Robber";
+            infoText.color = Color.red;
+        }
+
+
+    }
 }

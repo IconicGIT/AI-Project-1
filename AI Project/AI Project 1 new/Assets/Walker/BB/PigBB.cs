@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PigBB : MonoBehaviour
 {
+    public TextMesh infoText;
+    public TextMesh agentTypeText;
+    public GameObject camObject;
+
     public ApplesController appleController;
 
     public GameObject currentApple;
@@ -14,12 +18,13 @@ public class PigBB : MonoBehaviour
         {
             appleController.CleanAppleList();
 
-            float nextAppleDistance = float.MaxValue;
+            float nextAppleDistance = Mathf.Infinity;
 
             foreach (GameObject apple in appleController.apples)
             {
                 if (apple && Vector3.Distance(transform.position, apple.transform.position) < nextAppleDistance) 
                 {
+                    nextAppleDistance = Vector3.Distance(transform.position, apple.transform.position);
                     currentApple = apple;
                 }
             }
@@ -28,15 +33,17 @@ public class PigBB : MonoBehaviour
        
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        agentTypeText.text = "PIG";
+        infoText.text = "";
+        agentTypeText.color = Color.magenta;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        infoText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
+        agentTypeText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
     }
 }

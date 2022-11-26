@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class RobberBB : MonoBehaviour
 {
+    public TextMesh infoText;
+    public TextMesh agentTypeText;
+    public GameObject camObject;
+
     public GameObject self;
     public bool fly;
 
@@ -14,9 +18,18 @@ public class RobberBB : MonoBehaviour
         fly = true;
     }
 
+    void Start()
+    {
+        agentTypeText.text = "Robber";
+        infoText.text = "";
+        agentTypeText.color = Color.red;
+    }
+
     void Update()
     {
-        
+        infoText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
+        agentTypeText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
+
         if (fly)
         {
             self.transform.position = self.transform.position + new Vector3(0, pos, 0);

@@ -20,7 +20,7 @@ public class RobberBB : MonoBehaviour
         if (fly)
         {
             self.transform.position = self.transform.position + new Vector3(0, pos, 0);
-            pos += .1f;
+            pos += .5f;
         }
     }
 }

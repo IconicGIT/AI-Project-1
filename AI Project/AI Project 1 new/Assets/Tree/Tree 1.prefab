@@ -78,9 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac66d47184ab1947a46a05dcb17e634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer_ref: 56000500
+  timer_ref: 5000
   timer: 0
   apple: {fileID: 4168666564582084105, guid: b6c700c86c3c7e946a9bc94e2f963b32, type: 3}
+  applesController: {fileID: 0}
   appleSpawnRadius: 10
 --- !u!1 &49232045099910495
 GameObject:

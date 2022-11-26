@@ -409,6 +409,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
 --- !u!4 &35404822 stripped
@@ -779,6 +787,103 @@ MonoBehaviour:
     showNormalsHelpInfo: 0
     tabIndex: 0
   initialized: 1
+--- !u!1001 &229137547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1674595153}
+    m_Modifications:
+    - target: {fileID: 4586982289727920213, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Name
+      value: Pig (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 76.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 48.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: behavior
+      value: 
+      objectReference: {fileID: 11400000, guid: 14857135cb58b6141a393895f3572dac, type: 2}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParams.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParams.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParams.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParamsNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParamsNames.Array.data[0]
+      value: self
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParamsNames.Array.data[1]
+      value: currentApple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196489577948088646, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: appleController
+      value: 
+      objectReference: {fileID: 896208127}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
 --- !u!1 &267060877
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1103,7 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 32827050}
-    - {fileID: 1798593205}
+    - {fileID: 290031035}
     - {fileID: 290031035}
     objectParamsNames:
     - target
@@ -1013,10 +1118,8 @@ MonoBehaviour:
     vector2Params: []
     vector2ParamsNames: []
     vector2ParamsLostDefaultValue: 
-    vector3Params:
-    - {x: 0, y: 0, z: 0}
-    vector3ParamsNames:
-    - targetPos
+    vector3Params: []
+    vector3ParamsNames: []
     vector3ParamsLostDefaultValue: 
     vector4Params: []
     vector4ParamsNames: []
@@ -1227,7 +1330,7 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 331254025}
-    - {fileID: 1798593205}
+    - {fileID: 349922179}
     - {fileID: 349922179}
     objectParamsNames:
     - target
@@ -1242,10 +1345,8 @@ MonoBehaviour:
     vector2Params: []
     vector2ParamsNames: []
     vector2ParamsLostDefaultValue: 
-    vector3Params:
-    - {x: 0, y: 0, z: 0}
-    vector3ParamsNames:
-    - targetPos
+    vector3Params: []
+    vector3ParamsNames: []
     vector3ParamsLostDefaultValue: 
     vector4Params: []
     vector4ParamsNames: []
@@ -1483,6 +1584,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1001 &516142297
@@ -1658,6 +1763,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1 &521653493
@@ -2197,7 +2306,7 @@ MonoBehaviour:
     colorParamsNames: []
     colorParamsLostDefaultValue: 
     objectParams:
-    - {fileID: 1798593205}
+    - {fileID: 647515034}
     - {fileID: 0}
     - {fileID: 647515034}
     objectParamsNames:
@@ -2849,8 +2958,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+--- !u!1 &896208125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896208126}
+  - component: {fileID: 896208127}
+  m_Layer: 0
+  m_Name: AppleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &896208126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896208125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.9919024, y: -8.646382, z: -3.9463005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &896208127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896208125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737fd1d7599b67e4d91dae3b0818c3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apples:
+  - {fileID: 1592104250}
 --- !u!1001 &898971041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2972,7 +3135,7 @@ MonoBehaviour:
     colorParamsNames: []
     colorParamsLostDefaultValue: 
     objectParams:
-    - {fileID: 1798593205}
+    - {fileID: 926084144}
     - {fileID: 0}
     - {fileID: 926084144}
     objectParamsNames:
@@ -3238,6 +3401,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1001 &985686026
@@ -3365,8 +3532,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+--- !u!1001 &1012994668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1846675040}
+    m_Modifications:
+    - target: {fileID: 495403447699483738, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_Name
+      value: Pig
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.278353
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2820609
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.2820609
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495403447699483741, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc3c57fe9cc9c9e44bc43f7893d1708e, type: 3}
 --- !u!4 &1024456406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 49232044065010301, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
@@ -3435,6 +3675,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1001 &1104216814
@@ -3553,6 +3797,14 @@ PrefabInstance:
     - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
@@ -3738,7 +3990,7 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 863596006}
-    - {fileID: 1798593205}
+    - {fileID: 1148766257}
     - {fileID: 1148766257}
     objectParamsNames:
     - target
@@ -3753,10 +4005,8 @@ MonoBehaviour:
     vector2Params: []
     vector2ParamsNames: []
     vector2ParamsLostDefaultValue: 
-    vector3Params:
-    - {x: 0, y: 0, z: 0}
-    vector3ParamsNames:
-    - targetPos
+    vector3Params: []
+    vector3ParamsNames: []
     vector3ParamsLostDefaultValue: 
     vector4Params: []
     vector4ParamsNames: []
@@ -3900,6 +4150,10 @@ PrefabInstance:
       propertyPath: timer_ref
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1001 &1201413899
@@ -3965,6 +4219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1 &1205639172
@@ -4131,6 +4389,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: behavior
+      value: 
+      objectReference: {fileID: 11400000, guid: 14857135cb58b6141a393895f3572dac, type: 2}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParams.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParams.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParams.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParamsNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParamsNames.Array.data[0]
+      value: self
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950329935825265140, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: blackboard.objectParamsNames.Array.data[1]
+      value: currentApple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196489577948088646, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: appleController
+      value: 
+      objectReference: {fileID: 896208127}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
 --- !u!4 &1226908822 stripped
@@ -4138,6 +4436,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
   m_PrefabInstance: {fileID: 1226908821}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1226908823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4586982289727920213, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+  m_PrefabInstance: {fileID: 1226908821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1226908824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226908823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f8903049eb2b340bc2649995699217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appleController: {fileID: 896208127}
+  currentApple: {fileID: 0}
+--- !u!114 &1226908831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226908823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422fb6956201c7944ae2113a1a53b0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTasksPerTick: 500
+  behavior: {fileID: 11400000, guid: 14857135cb58b6141a393895f3572dac, type: 2}
+  paused: 0
+  restartWhenFinished: 0
+  blackboard:
+    intParams: 
+    intParamsNames: []
+    intParamsLostDefaultValue: 
+    boolParams: 
+    boolParamsNames: []
+    boolParamsLostDefaultValue: 
+    floatParams: []
+    floatParamsNames: []
+    floatParamsLostDefaultValue: 
+    stringParams: []
+    stringParamsNames: []
+    stringParamsLostDefaultValue: 
+    colorParams: []
+    colorParamsNames: []
+    colorParamsLostDefaultValue: 
+    objectParams:
+    - {fileID: 1226908823}
+    - {fileID: 0}
+    - {fileID: 1226908823}
+    objectParamsNames:
+    - self
+    - currentApple
+    - area
+    objectParamsLostDefaultValue: 
+    layerMaskParams: []
+    layerMaskParamsNames: []
+    layerMaskParamsLostDefaultValue: 
+    enumParamsNames: []
+    enumParamsLostDefaultValue: 
+    vector2Params: []
+    vector2ParamsNames: []
+    vector2ParamsLostDefaultValue: 
+    vector3Params: []
+    vector3ParamsNames: []
+    vector3ParamsLostDefaultValue: 
+    vector4Params: []
+    vector4ParamsNames: []
+    vector4ParamsLostDefaultValue: 
+    rectParams: []
+    rectParamsNames: []
+    rectParamsLostDefaultValue: 
+    animationCurveParams: []
+    animationCurveParamsNames: []
+    animationCurveParamsLostDefaultValue: 
+    boundsParams: []
+    boundsParamsNames: []
+    boundsParamsLostDefaultValue: 
+    gradientParams: []
+    gradientParamsNames: []
+    gradientParamsLostDefaultValue: 
+    quaternionParams: []
+    quaternionParamsNames: []
+    quaternionParamsLostDefaultValue: 
 --- !u!1 &1245868456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,6 +4633,10 @@ PrefabInstance:
       propertyPath: timer_ref
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1001 &1375444288
@@ -4757,6 +5148,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1001 &1507097393
@@ -4940,6 +5335,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
 --- !u!4 &1563109801 stripped
@@ -5037,6 +5440,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b79d0b13355dc8f44b7956db61a82656, type: 3}
+--- !u!1 &1592104250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4168666564582084105, guid: b6c700c86c3c7e946a9bc94e2f963b32, type: 3}
+  m_PrefabInstance: {fileID: 4168666563385216129}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1592472873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4586982289727920213, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
@@ -5080,7 +5488,7 @@ MonoBehaviour:
     colorParamsNames: []
     colorParamsLostDefaultValue: 
     objectParams:
-    - {fileID: 1798593205}
+    - {fileID: 1592472873}
     - {fileID: 0}
     - {fileID: 1592472873}
     objectParamsNames:
@@ -5180,6 +5588,7 @@ Transform:
   - {fileID: 1592472874}
   - {fileID: 1148766258}
   - {fileID: 1226908822}
+  - {fileID: 1846675040}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5490,6 +5899,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
 --- !u!1001 &1777308993
@@ -5719,6 +6136,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 49232044065010301, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
   m_PrefabInstance: {fileID: 1094384686}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1846675039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4586982289727920213, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+  m_PrefabInstance: {fileID: 229137547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1846675040 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+  m_PrefabInstance: {fileID: 229137547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1846675041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846675039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422fb6956201c7944ae2113a1a53b0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTasksPerTick: 500
+  behavior: {fileID: 11400000, guid: 14857135cb58b6141a393895f3572dac, type: 2}
+  paused: 0
+  restartWhenFinished: 0
+  blackboard:
+    intParams: 
+    intParamsNames: []
+    intParamsLostDefaultValue: 
+    boolParams: 
+    boolParamsNames: []
+    boolParamsLostDefaultValue: 
+    floatParams: []
+    floatParamsNames: []
+    floatParamsLostDefaultValue: 
+    stringParams: []
+    stringParamsNames: []
+    stringParamsLostDefaultValue: 
+    colorParams: []
+    colorParamsNames: []
+    colorParamsLostDefaultValue: 
+    objectParams:
+    - {fileID: 1846675039}
+    - {fileID: 0}
+    - {fileID: 1846675039}
+    objectParamsNames:
+    - self
+    - currentApple
+    - area
+    objectParamsLostDefaultValue: 
+    layerMaskParams: []
+    layerMaskParamsNames: []
+    layerMaskParamsLostDefaultValue: 
+    enumParamsNames: []
+    enumParamsLostDefaultValue: 
+    vector2Params: []
+    vector2ParamsNames: []
+    vector2ParamsLostDefaultValue: 
+    vector3Params: []
+    vector3ParamsNames: []
+    vector3ParamsLostDefaultValue: 
+    vector4Params: []
+    vector4ParamsNames: []
+    vector4ParamsLostDefaultValue: 
+    rectParams: []
+    rectParamsNames: []
+    rectParamsLostDefaultValue: 
+    animationCurveParams: []
+    animationCurveParamsNames: []
+    animationCurveParamsLostDefaultValue: 
+    boundsParams: []
+    boundsParamsNames: []
+    boundsParamsLostDefaultValue: 
+    gradientParams: []
+    gradientParamsNames: []
+    gradientParamsLostDefaultValue: 
+    quaternionParams: []
+    quaternionParamsNames: []
+    quaternionParamsLostDefaultValue: 
+--- !u!114 &1846675042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846675039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f8903049eb2b340bc2649995699217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appleController: {fileID: 896208127}
+  currentApple: {fileID: 0}
 --- !u!4 &1913704256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 49232044065010301, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
@@ -5782,7 +6293,7 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 32827050}
-    - {fileID: 1798593205}
+    - {fileID: 1923781967}
     - {fileID: 1923781967}
     objectParamsNames:
     - target
@@ -5797,10 +6308,8 @@ MonoBehaviour:
     vector2Params: []
     vector2ParamsNames: []
     vector2ParamsLostDefaultValue: 
-    vector3Params:
-    - {x: 0, y: 0, z: 0}
-    vector3ParamsNames:
-    - targetPos
+    vector3Params: []
+    vector3ParamsNames: []
     vector3ParamsLostDefaultValue: 
     vector4Params: []
     vector4ParamsNames: []
@@ -5944,6 +6453,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
 --- !u!4 &1983653879 stripped
@@ -6014,6 +6531,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643858243323920068, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
+      propertyPath: applesController
+      value: 
+      objectReference: {fileID: 896208127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0304e666657bbcb45a52c2a02091e299, type: 3}
 --- !u!1001 &2083654117
@@ -6070,6 +6591,14 @@ PrefabInstance:
     - target: {fileID: 4586982289727920216, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586982289727920219, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578797754670651771, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}
+      propertyPath: m_Radius
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c020f6ffcaa114f819a46c0ba2afb0, type: 3}

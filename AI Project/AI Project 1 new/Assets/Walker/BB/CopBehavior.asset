@@ -118,77 +118,77 @@ MonoBehaviour:
     id=\"37\" />\r\n          <ConditionEvalNode id=\"36\" />\r\n          <ActionNode
     id=\"38\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n   
     <RepeatDecorator id=\"1\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"690.7055 -328.2455\" name=\"Repeat\" description=\"Repeats
+    selected=\"False\" position=\"580.7056 -61.57887\" name=\"Repeat\" description=\"Repeats
     the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <ParallelNode id=\"21\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"665.1841
-    -193.8328\" name=\"Parallel\" description=\"Executes all its children in parallel
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"555.1842
+    72.83386\" name=\"Parallel\" description=\"Executes all its children in parallel
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ParallelNode id=\"21\" />\r\n         
     <RepeatDecorator id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </ParallelNode>\r\n   
     <RepeatUntilSuccess id=\"18\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"394.0643 3.666542\" name=\"Repeat Until Success\"
+    selected=\"False\" position=\"284.0642 270.3331\" name=\"Repeat Until Success\"
     description=\"Repeats the execution of its child node until it success\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <RepeatUntilSuccess
     id=\"18\" />\r\n          <ParallelNode id=\"21\" />\r\n        </data>\r\n     
     </_data>\r\n    </RepeatUntilSuccess>\r\n    <SequenceNode id=\"7\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"840.1494
-    28.10707\" name=\"Sequence\" description=\"Executes all its children in sequence
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"730.1494
+    294.7737\" name=\"Sequence\" description=\"Executes all its children in sequence
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"7\" />\r\n         
     <ParallelNode id=\"21\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <SequenceNode id=\"23\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"412.4688 206.4161\" name=\"Sequence\" description=\"Executes all its
+    position=\"302.4687 473.0828\" name=\"Sequence\" description=\"Executes all its
     children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"23\" />\r\n         
     <RepeatUntilSuccess id=\"18\" />\r\n        </data>\r\n      </_data>\r\n   
     </SequenceNode>\r\n    <ActionNode id=\"10\">\r\n      <_data>\r\n        <data
-    breakpoint=\"0\" selected=\"False\" position=\"693.3626 151.44\" name=\"Navigation/MoveToRandomPosition\"
+    breakpoint=\"0\" selected=\"False\" position=\"583.3627 418.1067\" name=\"Navigation/MoveToRandomPosition\"
     description=\"Gets a random position from a given area and moves the game object
     to that point by using a NavMeshAgent\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"10\" />\r\n         
     <SequenceNode id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ActionNode id=\"9\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"987.8279 158.4046\" name=\"Basic/WaitForSeconds\" description=\"Action
+    position=\"877.8278 425.0713\" name=\"Basic/WaitForSeconds\" description=\"Action
     that success after a period of time.\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"9\" />\r\n          <SequenceNode
     id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ActionNode id=\"19\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"120.1958 325.4514\" name=\"MyActions/Check Robber victims\" description=\"Get
+    position=\"10.1958 592.1179\" name=\"MyActions/Check Robber victims\" description=\"Get
     the Closest Free Cop.\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"19\" />\r\n          <SequenceNode
     id=\"23\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <PrioritySelectorNode id=\"35\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"651.5564 312.9396\" name=\"Priority Selector\"
+    selected=\"False\" position=\"541.5565 579.6062\" name=\"Priority Selector\"
     description=\"\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <PrioritySelectorNode id=\"35\" />\r\n          <SequenceNode
     id=\"23\" />\r\n        </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n   
     <ConditionEvalNode id=\"36\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"True\" position=\"918.1452 893.7014\" name=\"Perception/IsTargetClose\"
+    selected=\"True\" position=\"808.1451 1160.368\" name=\"Perception/IsTargetClose\"
     description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ConditionEvalNode id=\"36\" />\r\n          <PrioritySelectorNode
     id=\"35\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n   
     <SequenceNode id=\"28\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"506.0175 417.6539\" name=\"Sequence\" description=\"Executes all its
+    position=\"396.0175 684.3205\" name=\"Sequence\" description=\"Executes all its
     children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"28\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <ConditionEvalNode id=\"37\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"1423.763 889.8696\" name=\"AlwaysTrue\" description=\"Eval\"
+    selected=\"False\" position=\"1313.763 1156.536\" name=\"AlwaysTrue\" description=\"Eval\"
     cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ConditionEvalNode id=\"37\" />\r\n          <PrioritySelectorNode id=\"35\"
     />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode
     id=\"22\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"786.6599 418.738\" name=\"MovesTowardsNextRobber\" description=\"\"
+    position=\"676.6599 685.4046\" name=\"MovesTowardsNextRobber\" description=\"\"
     cardinality=\"-1\" hasParent=\"False\">\r\n          <BehaviorTree id=\"22\"
     />\r\n        </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n    <ActionNode
     id=\"26\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"339.0386 690.4648\" name=\"MyActions/Erradicate Entity\" description=\"Get
+    position=\"229.0386 957.1315\" name=\"MyActions/Erradicate Entity\" description=\"Get
     the Closest Free Cop.\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"28\" />\r\n          <SequenceNode id=\"28\" />\r\n          <SequenceNode
     id=\"28\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ActionNode id=\"38\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"613.89 685.4879\" name=\"Basic/WaitForSeconds\" description=\"Action
+    position=\"503.89 952.1547\" name=\"Basic/WaitForSeconds\" description=\"Action
     that success after a period of time.\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"28\" />\r\n          <ActionNode id=\"38\" />\r\n         
     <SequenceNode id=\"28\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n 

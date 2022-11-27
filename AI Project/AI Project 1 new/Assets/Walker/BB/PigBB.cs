@@ -10,6 +10,7 @@ public class PigBB : MonoBehaviour
 
     public ApplesController appleController;
 
+    public bool debugApple;
     public GameObject currentApple;
 
     public void GetNearestApple()
@@ -43,6 +44,9 @@ public class PigBB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentApple && debugApple)
+            Debug.DrawLine(transform.position, currentApple.transform.position, Color.magenta);
+
         infoText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
         agentTypeText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
     }

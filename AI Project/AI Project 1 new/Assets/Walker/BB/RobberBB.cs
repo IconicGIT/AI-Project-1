@@ -9,6 +9,8 @@ public class RobberBB : MonoBehaviour
     public GameObject camObject;
 
     public GameObject self;
+    public GameObject target;
+    public bool debugTarget;
     public bool fly;
 
     float pos = 0;
@@ -27,6 +29,9 @@ public class RobberBB : MonoBehaviour
 
     void Update()
     {
+        if (debugTarget)
+            Debug.DrawLine(transform.position, target.transform.position, Color.red);
+
         infoText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
         agentTypeText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
 

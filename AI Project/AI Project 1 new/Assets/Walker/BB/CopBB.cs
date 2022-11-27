@@ -10,7 +10,8 @@ public class CopBB : MonoBehaviour
 
     public List<GameObject> robbersToApproach;
     public GameObject nextRobber;
-    
+    public bool debugTarget;
+
 
     public void NotifyRobber(GameObject robber)
     {
@@ -34,6 +35,8 @@ public class CopBB : MonoBehaviour
     }
     void Update()
     {
+        
+
         infoText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
         agentTypeText.transform.rotation = Quaternion.LookRotation(camObject.transform.position);
 
@@ -42,6 +45,8 @@ public class CopBB : MonoBehaviour
 
         if (nextRobber)
         {
+            if (debugTarget)
+                Debug.DrawLine(transform.position, nextRobber.transform.position, Color.blue); 
             infoText.text = "Approaching Robber";
             infoText.color = Color.red;
         }

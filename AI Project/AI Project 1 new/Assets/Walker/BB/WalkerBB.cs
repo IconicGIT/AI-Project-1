@@ -5,6 +5,7 @@ using UnityEngine;
 public class WalkerBB : MonoBehaviour
 {
     public GameObject cop;
+    public bool debugCop;
     public void GetRobbed(GameObject robber)
     {
         //print("Robber: " + robber.name);
@@ -22,6 +23,15 @@ public class WalkerBB : MonoBehaviour
             
 
         }
+
+       
+
+    }
+
+    private void Update()
+    {
+        if (debugCop)
+            Debug.DrawLine(transform.position, cop.transform.position, Color.cyan);
 
     }
 }

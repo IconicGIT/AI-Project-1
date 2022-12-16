@@ -34,6 +34,8 @@ public class AirplaneControllerIA : Agent
 
     AircraftPhysics aircraftPhysics;
     public List<Rigidbody> bodyParts;
+    public int targetTime = 1000;
+    
 
     private void Start()
     {
@@ -48,11 +50,19 @@ public class AirplaneControllerIA : Agent
         {
             body.angularVelocity = Vector3.zero;
             body.velocity = Vector3.zero;
-            transform.position = Vector3.zero;
+            transform.position = new Vector3(0, 3.5f, 0);
+            transform.rotation.SetEulerAngles(-90, 0, 0);
         }
 
 
         base.OnEpisodeBegin();
+    }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(transform.position);
+        sensor.AddObservation(transform.rotation);
+        base.CollectObservations(sensor);
     }
 
     private void Update()

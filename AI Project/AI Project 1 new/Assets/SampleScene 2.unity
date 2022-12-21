@@ -6372,6 +6372,8 @@ MonoBehaviour:
   Flap: 0
   bodyParts: []
   targetTime: 1000
+  horizontalSensor: {fileID: 0}
+  verticalSensor: {fileID: 0}
   airplaneColliders:
   - {fileID: 1526225497}
   - {fileID: 1526225496}
@@ -6400,7 +6402,7 @@ MonoBehaviour:
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
-  m_InferenceDevice: 1
+  m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Aircraft Behavior
   TeamId: 0

@@ -41,6 +41,9 @@ public class AirplaneControllerIA : Agent
     [SerializeField]
     public RayPerceptionSensor verticalSensor;
 
+    [SerializeField]
+    List<Collider> airplaneColliders;
+
     float minHeight = 19;
     float maxHeight = 29;
 
@@ -131,8 +134,10 @@ public class AirplaneControllerIA : Agent
             //bad boi
         }
 
-
-
+        foreach(Collider thing in airplaneColliders)
+        {
+            
+        }
 
         //base.OnActionReceived(actions);
     }

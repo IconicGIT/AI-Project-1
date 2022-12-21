@@ -37,9 +37,9 @@ public class AirplaneControllerIA : Agent
     public int targetTime = 1000;
 
     [SerializeField]
-    public RayPerceptionSensor horizontalSensor;
+    public RayPerceptionSensorComponent3D horizontalSensor;
     [SerializeField]
-    public RayPerceptionSensor verticalSensor;
+    public RayPerceptionSensorComponent3D verticalSensor;
 
     [SerializeField]
     List<Collider> airplaneColliders;
@@ -52,8 +52,8 @@ public class AirplaneControllerIA : Agent
     private void Start()
     {
         aircraftPhysics = GetComponent<AircraftPhysics>();
-        horizontalSensor = GameObject.Find("horizontal rays").GetComponent<RayPerceptionSensor>();
-        verticalSensor = GameObject.Find("vertical rays").GetComponent<RayPerceptionSensor>();
+        horizontalSensor = GameObject.Find("horizontal rays").GetComponent<RayPerceptionSensorComponent3D>();
+        verticalSensor = GameObject.Find("vertical rays").GetComponent<RayPerceptionSensorComponent3D>();
     }
 
     public override void OnEpisodeBegin()
@@ -86,15 +86,22 @@ public class AirplaneControllerIA : Agent
         sensor.AddObservation(Roll);
         sensor.AddObservation(thrustPercent);
 
-        foreach (var thing in horizontalSensor.GetCompressedObservation())
-        {
-            sensor.AddObservation(thing);
-        }
+        RayPerceptionInput inputH = horizontalSensor.GetRayPerceptionInput();
 
-        foreach (var thing in verticalSensor.GetCompressedObservation())
-        {
-            sensor.AddObservation(thing);
-        }
+        
+        //sensor.AddObservation(horizontalSensor.GetRayPerceptionInput());
+
+        //foreach (var thing in horizontalSensor)
+        //{
+        //    sensor.AddObservation(thing);
+        //}
+
+
+
+        //foreach (var thing in verticalSensor)
+        //{
+        //    sensor.AddObservation(thing);
+        //}
 
         //base.CollectObservations(sensor);
     }
@@ -122,72 +129,91 @@ public class AirplaneControllerIA : Agent
 
         //rewards: above certiain time without fliyng / at more ore less at certain Y / not colliding with anything;
 
+        float reward = 0.0f;
+
         
         if (transform.position.y < minHeight || transform.position.y > maxHeight)
         {
             //bad boi
+            reward -= 1 / 3;
         }
 
         
         if (time < 1000 * 60 * 15)
         {
             //bad boi
+            reward -= 1 / 3;
+            EndEpisode();
         }
 
         foreach(Collider thing in airplaneColliders)
         {
-            
+            reward -= 1 / 3;
+            EndEpisode();
         }
+
+        reward += 1;
+
+        SetReward(reward);
 
         //base.OnActionReceived(actions);
     }
 
-
-
-    private void Update()
+    public override void Heuristic(in ActionBuffers actionsOut)
     {
-        Pitch = Input.GetAxis("Vertical");
-        Roll = Input.GetAxis("Horizontal");
-        Yaw = Input.GetAxis("Yaw");
+        var continuousActionOut = actionsOut.ContinuousActions;
+        continuousActionOut[0] = Input.GetAxis("Vertical");
+        continuousActionOut[2] = Input.GetAxis("Horizontal");
+        continuousActionOut[1] = Input.GetAxis("Yaw");
+        //continuousActionOut[3] = Input.GetKey(KeyCode.UpArrow);
 
-
-        
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            thrustPercent += 0.01f;
-
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            thrustPercent -= 0.01f;
-
-            
-        }
-
-        if (thrustPercent > 1)
-        {
-            thrustPercent = 1;
-        }
-        if (thrustPercent < 0)
-        {
-            thrustPercent = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Flap = Flap > 0 ? 0 : 0.3f;
-        }
-
-        //if (Input.GetKeyDown(KeyCode.B))
-        //{
-        //    brakesTorque = brakesTorque > 0 ? 0 : 100f;
-        //}
-
-      // displayText.text = "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
-       //displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
-       //displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
-       //displayText.text += brakesTorque > 0 ? "B: ON" : "B: OFF";
+        //base.Heuristic(actionsOut);)
     }
+
+    //private void Update()
+    //{
+    //    Pitch = Input.GetAxis("Vertical");
+    //    Roll = Input.GetAxis("Horizontal");
+    //    Yaw = Input.GetAxis("Yaw");
+
+
+
+    //    if (Input.GetKey(KeyCode.UpArrow))
+    //    {
+    //        thrustPercent += 0.01f;
+
+    //    }
+    //    if (Input.GetKey(KeyCode.DownArrow))
+    //    {
+    //        thrustPercent -= 0.01f;
+
+
+    //    }
+
+    //    if (thrustPercent > 1)
+    //    {
+    //        thrustPercent = 1;
+    //    }
+    //    if (thrustPercent < 0)
+    //    {
+    //        thrustPercent = 0;
+    //    }
+
+    //    if (Input.GetKeyDown(KeyCode.F))
+    //    {
+    //        Flap = Flap > 0 ? 0 : 0.3f;
+    //    }
+
+    //    //if (Input.GetKeyDown(KeyCode.B))
+    //    //{
+    //    //    brakesTorque = brakesTorque > 0 ? 0 : 100f;
+    //    //}
+
+    //  // displayText.text = "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
+    //   //displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
+    //   //displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
+    //   //displayText.text += brakesTorque > 0 ? "B: ON" : "B: OFF";
+    //}
 
     private void FixedUpdate()
     {

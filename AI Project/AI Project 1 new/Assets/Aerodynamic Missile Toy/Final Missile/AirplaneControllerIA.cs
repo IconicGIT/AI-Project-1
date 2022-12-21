@@ -35,12 +35,22 @@ public class AirplaneControllerIA : Agent
     AircraftPhysics aircraftPhysics;
     public List<Rigidbody> bodyParts;
     public int targetTime = 1000;
-    
+
+    [SerializeField]
+    public RayPerceptionSensor horizontalSensor;
+    [SerializeField]
+    public RayPerceptionSensor verticalSensor;
+
+    float minHeight = 19;
+    float maxHeight = 29;
+
+    public float time;
 
     private void Start()
     {
         aircraftPhysics = GetComponent<AircraftPhysics>();
-
+        horizontalSensor = GameObject.Find("horizontal rays").GetComponent<RayPerceptionSensor>();
+        verticalSensor = GameObject.Find("vertical rays").GetComponent<RayPerceptionSensor>();
     }
 
     public override void OnEpisodeBegin()
@@ -55,15 +65,79 @@ public class AirplaneControllerIA : Agent
         }
 
 
-        base.OnEpisodeBegin();
+        //base.OnEpisodeBegin();
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
+       
+        //raysantamarias
+
+        
+
+        //yaw picth roll thrust
         sensor.AddObservation(transform.position);
         sensor.AddObservation(transform.rotation);
-        base.CollectObservations(sensor);
+        sensor.AddObservation(Yaw);
+        sensor.AddObservation(Pitch);
+        sensor.AddObservation(Roll);
+        sensor.AddObservation(thrustPercent);
+
+        foreach (var thing in horizontalSensor.GetCompressedObservation())
+        {
+            sensor.AddObservation(thing);
+        }
+
+        foreach (var thing in verticalSensor.GetCompressedObservation())
+        {
+            sensor.AddObservation(thing);
+        }
+
+        //base.CollectObservations(sensor);
     }
+
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+
+       
+       
+         Yaw = actions.ContinuousActions[0];
+         Pitch = actions.ContinuousActions[1];
+         Roll = actions.ContinuousActions[2];
+         thrustPercent += actions.ContinuousActions[3];
+
+
+        if (thrustPercent > 1)
+        {
+            thrustPercent = 1;
+        }
+        if (thrustPercent < 0)
+        {
+            thrustPercent = 0;
+        }
+
+
+        //rewards: above certiain time without fliyng / at more ore less at certain Y / not colliding with anything;
+
+        
+        if (transform.position.y < minHeight || transform.position.y > maxHeight)
+        {
+            //bad boi
+        }
+
+        
+        if (time < 1000 * 60 * 15)
+        {
+            //bad boi
+        }
+
+
+
+
+        //base.OnActionReceived(actions);
+    }
+
+
 
     private void Update()
     {

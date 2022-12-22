@@ -413,6 +413,7 @@
 "Assets/BehaviorBricks/Samples/QuickStartGuide/Done/Resources/Spawner.cs"
 "Assets/Camera movement/CameraMovement.cs"
 "Assets/CameraController.cs"
+"Assets/CheckCollisions.cs"
 "Assets/PathCreator/Examples/Scripts/GeneratePathExample.cs"
 "Assets/PathCreator/Examples/Scripts/PathFollower.cs"
 "Assets/PathCreator/Examples/Scripts/PathPlacer.cs"

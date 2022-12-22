@@ -13,13 +13,13 @@ public class WalkerBB : MonoBehaviour
 
         if (rnd < 50)
         {
-            print(gameObject.name + " noticied a robbery! Call the Cop!");
+            //print(gameObject.name + " noticied a robbery! Call the Cop!");
 
             cop.GetComponent<CopBB>().NotifyRobber(robber);
         }
         else
         {
-            print(gameObject.name + " was robbed without noticing.");
+            //print(gameObject.name + " was robbed without noticing.");
             
 
         }

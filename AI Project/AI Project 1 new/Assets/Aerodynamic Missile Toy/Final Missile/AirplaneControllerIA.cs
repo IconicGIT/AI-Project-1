@@ -44,8 +44,8 @@ public class AirplaneControllerIA : Agent
     [SerializeField]
     List<Collider> airplaneColliders;
 
-    float minHeight = 19;
-    float maxHeight = 29;
+    float minHeight = 40;
+    float maxHeight = 60;
 
     public float time;
 
@@ -108,14 +108,10 @@ public class AirplaneControllerIA : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-
-       
-       
-         Yaw = actions.ContinuousActions[0];
-         Pitch = actions.ContinuousActions[1];
-         Roll = actions.ContinuousActions[2];
-         thrustPercent += actions.ContinuousActions[3];
-
+         Pitch = actions.ContinuousActions[0];
+         Yaw = actions.ContinuousActions[1];
+         //Roll = actions.ContinuousActions[2];
+         thrustPercent += actions.ContinuousActions[2];
 
         if (thrustPercent > 1)
         {
@@ -126,46 +122,57 @@ public class AirplaneControllerIA : Agent
             thrustPercent = 0;
         }
 
+       
 
-        //rewards: above certiain time without fliyng / at more ore less at certain Y / not colliding with anything;
-
-        float reward = 0.0f;
-
-        
-        if (transform.position.y < minHeight || transform.position.y > maxHeight)
+        //rewards
         {
-            //bad boi
-            reward -= 1 / 3;
+
+            //rewards: above certiain time without fliyng / at more ore less at certain Y / not colliding with anything;
+
+            float reward = 0.0f;
+
+            if (transform.position.y < minHeight || transform.position.y > maxHeight)
+            {
+                //bad boi
+                reward -= 1 / 3;
+            }
+
+
+            if (time < 1000 * 60 * 15)
+            {
+                //bad boi
+                reward -= 1 / 3;
+                EndEpisode();
+            }
+
+            foreach (Collider thing in airplaneColliders)
+            {
+
+                reward -= 1 / 3;
+                EndEpisode();
+            }
+
+            reward += 1;
+
+            SetReward(reward);
+
+            //base.OnActionReceived(actions);
         }
-
-        
-        if (time < 1000 * 60 * 15)
-        {
-            //bad boi
-            reward -= 1 / 3;
-            EndEpisode();
-        }
-
-        foreach(Collider thing in airplaneColliders)
-        {
-            reward -= 1 / 3;
-            EndEpisode();
-        }
-
-        reward += 1;
-
-        SetReward(reward);
-
-        //base.OnActionReceived(actions);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionOut = actionsOut.ContinuousActions;
-        continuousActionOut[0] = Input.GetAxis("Vertical");
-        continuousActionOut[2] = Input.GetAxis("Horizontal");
+        //levantar morro
+        continuousActionOut[0] = Input.GetAxis("VerticalKB");
+        //girar morro izq to der
         continuousActionOut[1] = Input.GetAxis("Yaw");
-        //continuousActionOut[3] = Input.GetKey(KeyCode.UpArrow);
+        //thrust
+        continuousActionOut[2] = Input.GetAxis("VerticalArr");
+
+        
+        thrustPercent += (float)continuousActionOut[2] * 0.01f;
+
 
         //base.Heuristic(actionsOut);)
     }
@@ -221,9 +228,9 @@ public class AirplaneControllerIA : Agent
         aircraftPhysics.SetThrustPercent(thrustPercent);
         //foreach (var wheel in wheels)
         //{
-            //wheel.brakeTorque = brakesTorque;
-            // small torque to wake up wheel collider
-            //wheel.motorTorque = 0.01f;
+        //wheel.brakeTorque = brakesTorque;
+        // small torque to wake up wheel collider
+        //wheel.motorTorque = 0.01f;
         //}
     }
 

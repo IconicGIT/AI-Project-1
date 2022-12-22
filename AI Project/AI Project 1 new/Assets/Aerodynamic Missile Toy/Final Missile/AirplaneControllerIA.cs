@@ -49,6 +49,13 @@ public class AirplaneControllerIA : Agent
 
     public float time;
 
+    [SerializeField]
+    CheckCollisions colCheck;
+
+    [SerializeField]
+    TextMesh rewardText;
+    float reward = 0;
+
     private void Start()
     {
         aircraftPhysics = GetComponent<AircraftPhysics>();
@@ -58,17 +65,25 @@ public class AirplaneControllerIA : Agent
 
     public override void OnEpisodeBegin()
     {
+        print("restarting...");
+        colCheck.Restart();
+        reward = 0;
+        transform.SetPositionAndRotation(new Vector3(0, 6, 0), Quaternion.Euler(new Vector3(-90, 0, 0)));
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
+        ////transform.rotation.eulerAngles.Set(-90, 0, 0);
 
-        foreach(Rigidbody body in bodyParts)
-        {
-            body.angularVelocity = Vector3.zero;
-            body.velocity = Vector3.zero;
-            transform.position = new Vector3(0, 3.5f, 0);
-            transform.rotation.SetEulerAngles(-90, 0, 0);
-        }
+        //foreach (Rigidbody body in bodyParts)
+        //{
+        //    body.angularVelocity = Vector3.zero;
+        //    body.velocity = Vector3.zero;
+        //    body.transform.rotation.eulerAngles.Set(-90, 0, 0);
+
+        //}
 
 
-        //base.OnEpisodeBegin();
+        base.OnEpisodeBegin();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -129,23 +144,22 @@ public class AirplaneControllerIA : Agent
 
             //rewards: above certiain time without fliyng / at more ore less at certain Y / not colliding with anything;
 
-            float reward = 0.0f;
 
-            if (transform.position.y < minHeight || transform.position.y > maxHeight)
-            {
-                //bad boi
-                reward -= 1 / 3;
-            }
+            //if (transform.position.y < minHeight || transform.position.y > maxHeight)
+            //{
+            //    //bad boi
+            //    reward -= 1 / 3;
+            //}
 
 
-            if (time < 1000 * 60 * 15)
-            {
-                //bad boi
-                reward -= 1 / 3;
-                EndEpisode();
-            }
+            //if (time > 1000 * 60 * 15)
+            //{
+            //    //bad boi
+            //    //reward -= 1 / 3;
+            //    EndEpisode();
+            //}
 
-            foreach (Collider thing in airplaneColliders)
+            if (colCheck.isColliding)
             {
 
                 reward -= 1 / 3;
@@ -155,7 +169,7 @@ public class AirplaneControllerIA : Agent
             reward += 1;
 
             SetReward(reward);
-
+            //print("reward: " + reward);
             //base.OnActionReceived(actions);
         }
     }
@@ -177,6 +191,10 @@ public class AirplaneControllerIA : Agent
         //base.Heuristic(actionsOut);)
     }
 
+    private void Update()
+    {
+        rewardText.text = "reward: " + reward.ToString();
+    }
     //private void Update()
     //{
     //    Pitch = Input.GetAxis("Vertical");

@@ -44,7 +44,7 @@ public class AirplaneControllerIA : Agent
     [SerializeField]
     List<Collider> airplaneColliders;
 
-    float minHeight = 40;
+    float minHeight = 10;
     float maxHeight = 60;
 
     public float time;
@@ -143,30 +143,51 @@ public class AirplaneControllerIA : Agent
         {
 
             //rewards: above certiain time without fliyng / at more ore less at certain Y / not colliding with anything;
+            //reward = 0;
+
+            if (transform.position.y < minHeight || transform.position.y > maxHeight)
+            {
+                //bad boi
+                reward -= 0.33f;
+            }
+            else
+            {
+                reward += 0.33f;
+                //print("Position good " + reward);
+
+            }
 
 
-            //if (transform.position.y < minHeight || transform.position.y > maxHeight)
-            //{
-            //    //bad boi
-            //    reward -= 1 / 3;
-            //}
-
-
-            //if (time > 1000 * 60 * 15)
-            //{
-            //    //bad boi
-            //    //reward -= 1 / 3;
-            //    EndEpisode();
-            //}
+            if (time > 1000 * 60 * 15)
+            {
+                //bad boi
+                //reward -= 1 / 3;
+                EndEpisode();
+            }
 
             if (colCheck.isColliding)
             {
 
-                reward -= 1 / 3;
+                reward -= 0.33f;
                 EndEpisode();
             }
+            else
+            {
+                reward += 0.33f;
+                //print("Collision good " + reward);
+            }
 
-            reward += 1;
+            if(reward < -1)
+            {
+                reward = -1;
+            }
+            else if(reward > 1)
+            {
+                reward = 1;
+            }
+
+            print((float)reward);
+            
 
             SetReward(reward);
             //print("reward: " + reward);

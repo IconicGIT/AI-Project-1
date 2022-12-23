@@ -72,6 +72,7 @@ public class AirplaneControllerIA : Agent
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
+        thrustPercent = 0;
         ////transform.rotation.eulerAngles.Set(-90, 0, 0);
 
         //foreach (Rigidbody body in bodyParts)
@@ -186,7 +187,7 @@ public class AirplaneControllerIA : Agent
                 reward = 1;
             }
 
-            print((float)reward);
+            //print((float)reward);
             
 
             SetReward(reward);
@@ -205,7 +206,10 @@ public class AirplaneControllerIA : Agent
         //thrust
         continuousActionOut[2] = Input.GetAxis("VerticalArr");
 
-        
+        Pitch = (float)continuousActionOut[0];
+        Yaw = (float)continuousActionOut[1];
+
+        //SetControlSurfecesAngles(continuousActionOut[0], Roll, continuousActionOut[1], Flap);
         thrustPercent += (float)continuousActionOut[2] * 0.01f;
 
 
@@ -215,6 +219,8 @@ public class AirplaneControllerIA : Agent
     private void Update()
     {
         rewardText.text = "reward: " + reward.ToString();
+        
+        //rewardText.text = "Yaw: " + Yaw.ToString();
     }
     //private void Update()
     //{
@@ -275,8 +281,12 @@ public class AirplaneControllerIA : Agent
 
     public void SetControlSurfecesAngles(float pitch, float roll, float yaw, float flap)
     {
+        //print("Plane Yaw"+Yaw.ToString());
+        //print("Local Yaw" + yaw.ToString());
         foreach (var surface in controlSurfaces)
         {
+            
+
             if (surface == null || !surface.IsControlSurface) continue;
             switch (surface.InputType)
             {
@@ -293,6 +303,8 @@ public class AirplaneControllerIA : Agent
                     surface.SetFlapAngle(Flap * surface.InputMultiplyer);
                     break;
             }
+
+           
         }
     }
 

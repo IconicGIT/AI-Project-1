@@ -7,6 +7,8 @@ using Unity.MLAgents.Actuators;
 
 public class AirplaneControllerIA : Agent
 {
+
+    public GameObject Décoller;
     [SerializeField]
     List<AeroSurface> controlSurfaces = null;
     [SerializeField]
@@ -29,6 +31,7 @@ public class AirplaneControllerIA : Agent
     //[SerializeField]
     //Text displayText = null;
 
+    [SerializeField]
     float thrustPercent;
     //float brakesTorque;
 
@@ -65,14 +68,14 @@ public class AirplaneControllerIA : Agent
 
     public override void OnEpisodeBegin()
     {
-        print("restarting...");
+        //print("restarting...");
         colCheck.Restart();
         reward = 0;
-        transform.SetPositionAndRotation(new Vector3(0, 6, 0), Quaternion.Euler(new Vector3(-90, 0, 0)));
+        transform.SetPositionAndRotation(Décoller.transform.position + new Vector3(0, 5, 0), Quaternion.Euler(new Vector3(-90, 0, 0)));
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
-        thrustPercent = 0;
+        thrustPercent = 1;
         ////transform.rotation.eulerAngles.Set(-90, 0, 0);
 
         //foreach (Rigidbody body in bodyParts)
@@ -124,8 +127,9 @@ public class AirplaneControllerIA : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-         Pitch = actions.ContinuousActions[0];
-         Yaw = actions.ContinuousActions[1];
+        //print("aaaaaaaa");
+        Pitch = actions.ContinuousActions[0];
+        Yaw = actions.ContinuousActions[1];
          //Roll = actions.ContinuousActions[2];
          thrustPercent += actions.ContinuousActions[2];
 
@@ -212,14 +216,13 @@ public class AirplaneControllerIA : Agent
         //SetControlSurfecesAngles(continuousActionOut[0], Roll, continuousActionOut[1], Flap);
         thrustPercent += (float)continuousActionOut[2] * 0.01f;
 
-
         //base.Heuristic(actionsOut);)
     }
 
     private void Update()
     {
         rewardText.text = "reward: " + reward.ToString();
-        
+        //print("thrust input: " + thrustPercent);
         //rewardText.text = "Yaw: " + Yaw.ToString();
     }
     //private void Update()

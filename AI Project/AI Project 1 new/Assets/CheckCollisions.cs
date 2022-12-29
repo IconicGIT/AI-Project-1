@@ -15,7 +15,7 @@ public class CheckCollisions : MonoBehaviour
        if (!other.CompareTag("beeTarget") == true)
         {
             isColliding = true;
-            print("Triggered with " + other.name);
+            //print("Triggered with " + other.name);
         }
     }
 }

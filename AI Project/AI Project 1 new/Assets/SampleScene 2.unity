@@ -10120,17 +10120,20 @@ MonoBehaviour:
   rollControlSensitivity: 0.15
   pitchControlSensitivity: 15
   yawControlSensitivity: 15
+  targetTime: 1000
+  timer: 0
+  lastEpisodeTime: 0
+  bestTime: 0
+  ThrustInput: 0
   Pitch: 0
   Yaw: 0
   Roll: 0
   Flap: 0
   thrustPercent: 0
   bodyParts: []
-  targetTime: 1000
   horizontalSensor: {fileID: 461916874}
   verticalSensor: {fileID: 1638238878}
   airplaneColliders: []
-  time: 0
   colCheck: {fileID: 948707741}
   rewardText: {fileID: 869998801}
 --- !u!114 &1526225494
@@ -10155,7 +10158,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 42c96281309325b46a3d6f9dd87616f5, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 1
   m_BehaviorType: 0
   m_BehaviorName: Plane

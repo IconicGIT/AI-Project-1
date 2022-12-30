@@ -20,6 +20,21 @@ public class AirplaneControllerIA : Agent
     [SerializeField]
     float yawControlSensitivity = 0.2f;
 
+    [SerializeField]
+    public int targetTime = 60;
+    [SerializeField]
+    public float timer = 0;
+    [SerializeField]
+    float lastEpisodeTime = 0;
+    [SerializeField]
+    float bestTime = 0;
+    [SerializeField]
+    float timeMean = 0;
+
+    float addedTime = 0;
+
+    [Range(-1, 1)]
+    public float ThrustInput;
     [Range(-1, 1)]
     public float Pitch;
     [Range(-1, 1)]
@@ -32,12 +47,13 @@ public class AirplaneControllerIA : Agent
     //Text displayText = null;
 
     [SerializeField]
+    [Range(0, 1)]
     float thrustPercent;
     //float brakesTorque;
 
     AircraftPhysics aircraftPhysics;
     public List<Rigidbody> bodyParts;
-    public int targetTime = 1000;
+    
 
     [SerializeField]
     public RayPerceptionSensorComponent3D horizontalSensor;
@@ -50,14 +66,32 @@ public class AirplaneControllerIA : Agent
     float minHeight = 10;
     float maxHeight = 60;
 
-    public float time;
-
+    
     [SerializeField]
     CheckCollisions colCheck;
 
     [SerializeField]
     TextMesh rewardText;
-    float reward = 0;
+
+    float addedReward = 0;
+    int rewardCount = 0;
+    [SerializeField]
+    float totalReward = 0;
+
+
+    void CalculateTimeMean()
+    {
+        addedTime += timer;
+        timeMean = addedTime / CompletedEpisodes;
+    }
+
+    //Normalize Reward
+    void _AddReward(float amount)
+    {
+        rewardCount++;
+        addedReward += amount;
+        totalReward = addedReward / rewardCount;
+    }
 
     private void Start()
     {
@@ -70,12 +104,22 @@ public class AirplaneControllerIA : Agent
     {
         //print("restarting...");
         colCheck.Restart();
-        reward = 0;
+
+        addedReward = 0;
+        rewardCount = 0;
+        totalReward = 0;
+
         transform.SetPositionAndRotation(Décoller.transform.position + new Vector3(0, 5, 0), Quaternion.Euler(new Vector3(-90, 0, 0)));
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
-        thrustPercent = 1;
+        thrustPercent = 0;
+
+        if (timer > bestTime) bestTime = timer;
+        lastEpisodeTime = timer;
+
+        CalculateTimeMean();
+        timer = 0;
         ////transform.rotation.eulerAngles.Set(-90, 0, 0);
 
         //foreach (Rigidbody body in bodyParts)
@@ -128,19 +172,12 @@ public class AirplaneControllerIA : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         //print("aaaaaaaa");
-        Pitch = actions.ContinuousActions[0];
-        Yaw = actions.ContinuousActions[1];
-         //Roll = actions.ContinuousActions[2];
-         thrustPercent += actions.ContinuousActions[2];
+        Pitch = actions.ContinuousActions[0] * 0.05f;
+        Yaw = actions.ContinuousActions[1] * 0.05f;
+        //Roll = actions.ContinuousActions[2];
+        ThrustInput = actions.ContinuousActions[2] * 0.01f;
 
-        if (thrustPercent > 1)
-        {
-            thrustPercent = 1;
-        }
-        if (thrustPercent < 0)
-        {
-            thrustPercent = 0;
-        }
+        
 
        
 
@@ -150,51 +187,105 @@ public class AirplaneControllerIA : Agent
             //rewards: above certiain time without fliyng / at more ore less at certain Y / not colliding with anything;
             //reward = 0;
 
-            if (transform.position.y < minHeight || transform.position.y > maxHeight)
+            bool rewardHasBeenSet = false;
+
+            if (transform.position.y > minHeight && transform.position.y < maxHeight)
             {
-                //bad boi
-                reward -= 0.33f;
+                _AddReward(0.2f);
             }
             else
             {
-                reward += 0.33f;
-                //print("Position good " + reward);
+                _AddReward(-0.4f);
 
             }
 
 
-            if (time > 1000 * 60 * 15)
+
+            if (timer >= targetTime)
             {
-                //bad boi
-                //reward -= 1 / 3;
-                EndEpisode();
+                if (transform.position.y > minHeight && transform.position.y < maxHeight)
+                {
+                    _AddReward(1);
+                    SetReward(totalReward);
+                    rewardHasBeenSet = true;
+                    EndEpisode();
+                }
+                else
+                {
+                    _AddReward(-1);
+                    SetReward(totalReward);
+                    rewardHasBeenSet = true;
+                    EndEpisode();
+                }
+            }
+            else
+            {
+
+                //the total reward obtained if the target time in the air is reached
+                float rewardByTime = 0.4f;
+
+                //reward obtained for a fragment of the target time in the air
+                float rewardByTimeSegment = 0;
+
+                //intervals at which the rewardByTime increases until reaches the target time
+                float timeDivisions = 10;
+
+                if (timer > 5 && transform.position.y < minHeight)
+                {
+                    _AddReward(-1);
+                    SetReward(totalReward);
+                    rewardHasBeenSet = true;
+                    EndEpisode();
+                }
+
+                for (int i = 1; i < timeDivisions; i++)
+                {
+                    if (timer > targetTime / timeDivisions * i && timer < targetTime / timeDivisions * i + 1) rewardByTimeSegment = rewardByTime / timeDivisions * i;
+
+                }
+
+                if (transform.position.y > minHeight && transform.position.y < maxHeight)
+                {
+                    _AddReward(rewardByTimeSegment);
+                }
+                else
+                {
+                   _AddReward(rewardByTimeSegment * 1.2f);
+                }
             }
 
             if (colCheck.isColliding)
             {
 
-                reward -= 0.33f;
+                _AddReward(-0.45f);
+
+                SetReward(totalReward);
+                rewardHasBeenSet = true;
                 EndEpisode();
             }
             else
             {
-                reward += 0.33f;
+                _AddReward(0.15f);
                 //print("Collision good " + reward);
             }
 
-            if(reward < -1)
-            {
-                reward = -1;
-            }
-            else if(reward > 1)
-            {
-                reward = 1;
-            }
+            //if (reward < -1)
+            //{
+            //    reward = -1;
+            //}
+            //else if(reward > 1)
+            //{
+            //    reward = 1;
+            //}
 
             //print((float)reward);
-            
 
-            SetReward(reward);
+
+            if (!rewardHasBeenSet)
+            {
+                SetReward(totalReward);
+            }
+            
             //print("reward: " + reward);
             //base.OnActionReceived(actions);
         }
@@ -210,8 +301,8 @@ public class AirplaneControllerIA : Agent
         //thrust
         continuousActionOut[2] = Input.GetAxis("VerticalArr");
 
-        Pitch = (float)continuousActionOut[0];
-        Yaw = (float)continuousActionOut[1];
+        Pitch = (float)continuousActionOut[0] * 0.05f;
+        Yaw = (float)continuousActionOut[1] * 0.05f;
 
         //SetControlSurfecesAngles(continuousActionOut[0], Roll, continuousActionOut[1], Flap);
         thrustPercent += (float)continuousActionOut[2] * 0.01f;
@@ -221,7 +312,8 @@ public class AirplaneControllerIA : Agent
 
     private void Update()
     {
-        rewardText.text = "reward: " + reward.ToString();
+        rewardText.text = "reward: " + totalReward.ToString();
+        timer += Time.deltaTime;
         //print("thrust input: " + thrustPercent);
         //rewardText.text = "Yaw: " + Yaw.ToString();
     }
@@ -272,7 +364,20 @@ public class AirplaneControllerIA : Agent
 
     private void FixedUpdate()
     {
-        SetControlSurfecesAngles(Pitch, Roll, Yaw, Flap);
+        thrustPercent += ThrustInput;
+
+        if (thrustPercent > 1)
+        {
+            thrustPercent = 1;
+        }
+        if (thrustPercent < 0)
+        {
+            thrustPercent = 0;
+        }
+
+
+        float multiplier = 4;
+        SetControlSurfecesAngles(Pitch * multiplier, Roll * multiplier, Yaw * multiplier, Flap);
         aircraftPhysics.SetThrustPercent(thrustPercent);
         //foreach (var wheel in wheels)
         //{

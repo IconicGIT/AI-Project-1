@@ -10160,9 +10160,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: b37caa74d32dd3a46a6fc738946dbfdd, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 3bf195b96238bab499b478e0aa77f29f, type: 3}
   m_InferenceDevice: 1
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: Plane
   TeamId: 0
   m_UseChildSensors: 1

@@ -1,0 +1,65 @@
+{
+    "Plane": {
+        "checkpoints": [
+            {
+                "steps": 39997,
+                "file_path": "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-39997.onnx",
+                "reward": -1.0734341144561768,
+                "creation_time": 1673219219.2287848,
+                "auxillary_file_paths": [
+                    "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-39997.pt"
+                ]
+            },
+            {
+                "steps": 59973,
+                "file_path": "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-59973.onnx",
+                "reward": -1.0634831190109253,
+                "creation_time": 1673219417.398388,
+                "auxillary_file_paths": [
+                    "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-59973.pt"
+                ]
+            },
+            {
+                "steps": 79993,
+                "file_path": "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-79993.onnx",
+                "reward": -1.0634831190109253,
+                "creation_time": 1673219625.3703449,
+                "auxillary_file_paths": [
+                    "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-79993.pt"
+                ]
+            },
+            {
+                "steps": 99969,
+                "file_path": "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-99969.onnx",
+                "reward": -1.0634831190109253,
+                "creation_time": 1673219821.980283,
+                "auxillary_file_paths": [
+                    "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-99969.pt"
+                ]
+            },
+            {
+                "steps": 100013,
+                "file_path": "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-100013.onnx",
+                "reward": -1.0634831190109253,
+                "creation_time": 1673219822.0923195,
+                "auxillary_file_paths": [
+                    "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-100013.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 100013,
+            "file_path": "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane.onnx",
+            "reward": -1.0634831190109253,
+            "creation_time": 1673219822.0923195,
+            "auxillary_file_paths": [
+                "results\\results\\Plane\\Plane\\ckp_every_20000\\Plane-100030.onnx\\Plane\\Plane-100013.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.10.2+cpu"
+    }
+}

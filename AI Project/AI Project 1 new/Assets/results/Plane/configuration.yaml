@@ -35,7 +35,7 @@ behaviors:
           deterministic: false
     init_path: null
     keep_checkpoints: 5
-    checkpoint_interval: 500000
+    checkpoint_interval: 20000
     max_steps: 100000
     time_horizon: 64
     summary_freq: 10000

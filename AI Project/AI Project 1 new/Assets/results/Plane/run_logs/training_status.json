@@ -2,22 +2,58 @@
     "Plane": {
         "checkpoints": [
             {
-                "steps": 100035,
-                "file_path": "results\\Plane\\Plane\\Plane-100035.onnx",
-                "reward": 7.014765501022339,
-                "creation_time": 1672343542.8377018,
+                "steps": 39982,
+                "file_path": "results\\Plane\\Plane\\Plane-39982.onnx",
+                "reward": null,
+                "creation_time": 1673221953.957457,
                 "auxillary_file_paths": [
-                    "results\\Plane\\Plane\\Plane-100035.pt"
+                    "results\\Plane\\Plane\\Plane-39982.pt"
+                ]
+            },
+            {
+                "steps": 59982,
+                "file_path": "results\\Plane\\Plane\\Plane-59982.onnx",
+                "reward": -2.1770702600479126,
+                "creation_time": 1673222145.2677286,
+                "auxillary_file_paths": [
+                    "results\\Plane\\Plane\\Plane-59982.pt"
+                ]
+            },
+            {
+                "steps": 79982,
+                "file_path": "results\\Plane\\Plane\\Plane-79982.onnx",
+                "reward": null,
+                "creation_time": 1673222333.4245558,
+                "auxillary_file_paths": [
+                    "results\\Plane\\Plane\\Plane-79982.pt"
+                ]
+            },
+            {
+                "steps": 99982,
+                "file_path": "results\\Plane\\Plane\\Plane-99982.onnx",
+                "reward": -2.1770702600479126,
+                "creation_time": 1673222527.8442867,
+                "auxillary_file_paths": [
+                    "results\\Plane\\Plane\\Plane-99982.pt"
+                ]
+            },
+            {
+                "steps": 100009,
+                "file_path": "results\\Plane\\Plane\\Plane-100009.onnx",
+                "reward": -2.1894643306732178,
+                "creation_time": 1673222527.9368238,
+                "auxillary_file_paths": [
+                    "results\\Plane\\Plane\\Plane-100009.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 100035,
+            "steps": 100009,
             "file_path": "results\\Plane\\Plane.onnx",
-            "reward": 7.014765501022339,
-            "creation_time": 1672343542.8377018,
+            "reward": -2.1894643306732178,
+            "creation_time": 1673222527.9368238,
             "auxillary_file_paths": [
-                "results\\Plane\\Plane\\Plane-100035.pt"
+                "results\\Plane\\Plane\\Plane-100009.pt"
             ]
         }
     },

@@ -2,22 +2,22 @@
     "Plane": {
         "checkpoints": [
             {
-                "steps": 100035,
-                "file_path": "results\\Plane\\Plane\\Plane-100035.onnx",
-                "reward": 7.014765501022339,
-                "creation_time": 1672343542.8377018,
+                "steps": 100022,
+                "file_path": "results\\Plane\\Plane\\Plane-100022.onnx",
+                "reward": -1.4491744836171467,
+                "creation_time": 1673348496.0108094,
                 "auxillary_file_paths": [
-                    "results\\Plane\\Plane\\Plane-100035.pt"
+                    "results\\Plane\\Plane\\Plane-100022.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 100035,
+            "steps": 100022,
             "file_path": "results\\Plane\\Plane.onnx",
-            "reward": 7.014765501022339,
-            "creation_time": 1672343542.8377018,
+            "reward": -1.4491744836171467,
+            "creation_time": 1673348496.0108094,
             "auxillary_file_paths": [
-                "results\\Plane\\Plane\\Plane-100035.pt"
+                "results\\Plane\\Plane\\Plane-100022.pt"
             ]
         }
     },

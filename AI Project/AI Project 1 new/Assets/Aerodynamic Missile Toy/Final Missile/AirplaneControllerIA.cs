@@ -172,8 +172,8 @@ public class AirplaneControllerIA : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         //print("aaaaaaaa");
-        Pitch = actions.ContinuousActions[0] * 0.05f;
-        Yaw = actions.ContinuousActions[1] * 0.05f;
+        Pitch = actions.ContinuousActions[0];
+        Yaw = actions.ContinuousActions[1];
         //Roll = actions.ContinuousActions[2];
         ThrustInput = actions.ContinuousActions[2] * 0.01f;
 

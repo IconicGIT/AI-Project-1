@@ -2,22 +2,31 @@
     "Plane": {
         "checkpoints": [
             {
-                "steps": 100022,
-                "file_path": "results\\Plane\\Plane\\Plane-100022.onnx",
-                "reward": -1.4491744836171467,
-                "creation_time": 1673348496.0108094,
+                "steps": 499991,
+                "file_path": "results\\Plane\\Plane\\Plane-499991.onnx",
+                "reward": -1.4743326751391093,
+                "creation_time": 1673436289.9811084,
                 "auxillary_file_paths": [
-                    "results\\Plane\\Plane\\Plane-100022.pt"
+                    "results\\Plane\\Plane\\Plane-499991.pt"
+                ]
+            },
+            {
+                "steps": 500035,
+                "file_path": "results\\Plane\\Plane\\Plane-500035.onnx",
+                "reward": -1.472220145313945,
+                "creation_time": 1673436290.0449383,
+                "auxillary_file_paths": [
+                    "results\\Plane\\Plane\\Plane-500035.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 100022,
+            "steps": 500035,
             "file_path": "results\\Plane\\Plane.onnx",
-            "reward": -1.4491744836171467,
-            "creation_time": 1673348496.0108094,
+            "reward": -1.472220145313945,
+            "creation_time": 1673436290.0449383,
             "auxillary_file_paths": [
-                "results\\Plane\\Plane\\Plane-100022.pt"
+                "results\\Plane\\Plane\\Plane-500035.pt"
             ]
         }
     },

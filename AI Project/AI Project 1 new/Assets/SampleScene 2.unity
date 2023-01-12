@@ -10120,7 +10120,7 @@ MonoBehaviour:
   rollControlSensitivity: 0.15
   pitchControlSensitivity: 15
   yawControlSensitivity: 15
-  targetTime: 1000
+  targetTime: 600
   timer: 0
   lastEpisodeTime: 0
   bestTime: 0

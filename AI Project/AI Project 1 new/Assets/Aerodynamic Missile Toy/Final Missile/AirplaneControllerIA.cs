@@ -228,7 +228,7 @@ public class AirplaneControllerIA : Agent
                 float rewardByTimeSegment = 0;
 
                 //intervals at which the rewardByTime increases until reaches the target time
-                float timeDivisions = 10;
+                float timeDivisions = 6;
 
                 if (timer > 5 && transform.position.y < minHeight)
                 {
@@ -246,11 +246,11 @@ public class AirplaneControllerIA : Agent
 
                 if (transform.position.y > minHeight && transform.position.y < maxHeight)
                 {
-                    _AddReward(rewardByTimeSegment);
+                    _AddReward(rewardByTimeSegment * 1.2f);
                 }
                 else
                 {
-                   _AddReward(rewardByTimeSegment * 1.2f);
+                   _AddReward(rewardByTimeSegment);
                 }
             }
 

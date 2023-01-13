@@ -2,24 +2,6 @@
     "Plane": {
         "checkpoints": [
             {
-                "steps": 500035,
-                "file_path": "results\\Plane\\Plane\\Plane-500035.onnx",
-                "reward": null,
-                "creation_time": 1673511141.393447,
-                "auxillary_file_paths": [
-                    "results\\Plane\\Plane\\Plane-500035.pt"
-                ]
-            },
-            {
-                "steps": 500035,
-                "file_path": "results\\Plane\\Plane\\Plane-500035.onnx",
-                "reward": null,
-                "creation_time": 1673511347.5646322,
-                "auxillary_file_paths": [
-                    "results\\Plane\\Plane\\Plane-500035.pt"
-                ]
-            },
-            {
                 "steps": 566213,
                 "file_path": "results\\Plane\\Plane\\Plane-566213.onnx",
                 "reward": null,
@@ -45,15 +27,33 @@
                 "auxillary_file_paths": [
                     "results\\Plane\\Plane\\Plane-1496157.pt"
                 ]
+            },
+            {
+                "steps": 1499953,
+                "file_path": "results\\Plane\\Plane\\Plane-1499953.onnx",
+                "reward": null,
+                "creation_time": 1673596182.7962422,
+                "auxillary_file_paths": [
+                    "results\\Plane\\Plane\\Plane-1499953.pt"
+                ]
+            },
+            {
+                "steps": 1500267,
+                "file_path": "results\\Plane\\Plane\\Plane-1500267.onnx",
+                "reward": null,
+                "creation_time": 1673596246.7001095,
+                "auxillary_file_paths": [
+                    "results\\Plane\\Plane\\Plane-1500267.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 1496157,
+            "steps": 1500267,
             "file_path": "results\\Plane\\Plane.onnx",
-            "reward": -0.7713353037834167,
-            "creation_time": 1673522903.7662168,
+            "reward": null,
+            "creation_time": 1673596246.7001095,
             "auxillary_file_paths": [
-                "results\\Plane\\Plane\\Plane-1496157.pt"
+                "results\\Plane\\Plane\\Plane-1500267.pt"
             ]
         }
     },

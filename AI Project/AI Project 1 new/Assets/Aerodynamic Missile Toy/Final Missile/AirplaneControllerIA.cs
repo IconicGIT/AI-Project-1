@@ -175,7 +175,7 @@ public class AirplaneControllerIA : Agent
         Pitch = actions.ContinuousActions[0];
         Yaw = actions.ContinuousActions[1];
         //Roll = actions.ContinuousActions[2];
-        ThrustInput = actions.ContinuousActions[2] * 0.01f;
+        ThrustInput = actions.ContinuousActions[2];
 
         
 
@@ -250,7 +250,7 @@ public class AirplaneControllerIA : Agent
                 }
                 else
                 {
-                   _AddReward(rewardByTimeSegment);
+                   _AddReward(-0.5f);
                 }
             }
 
